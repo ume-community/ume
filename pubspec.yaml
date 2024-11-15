@@ -14,7 +14,10 @@ dependencies:
     sdk: flutter
 
   shared_preferences: ^2.0.15
-  vm_service: ">=9.4.0 <12.0.0"
+
+  # [Original]: vm_service: ">=9.4.0 <12.0.0"
+  vm_service: ^14.2.5
+
   tuple: ^2.0.0
 
 dev_dependencies:

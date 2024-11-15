@@ -21,7 +21,8 @@ dependencies:
   flutter_ume_kit_dio: 0.2.0
 
 dependency_overrides:
-  vm_service: ^9.4.0
+  #[Original]: vm_service: ^9.4.0
+  vm_service: ^14.2.5
   flutter_ume:
     path: ../
 
@@ -45,6 +46,6 @@ dev_dependencies:
     path: ../kits/flutter_ume_kit_dio
   flutter_ume_kit_channel_monitor:
     path: ../kits/flutter_ume_kit_channel_monitor
-  
+
 flutter:
   uses-material-design: true

@@ -10,7 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  vm_service: ^9.4.0
+  #[Original]: vm_service: ^9.4.0
+  vm_service: ^14.2.5
   flutter_ume: ">=1.0.0 <2.0.0"
 
 dev_dependencies:
