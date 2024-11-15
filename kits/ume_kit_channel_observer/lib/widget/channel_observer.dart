@@ -44,9 +44,9 @@ class ChannelObserver extends StatefulWidget implements Pluggable {
   @override
   void onTrigger() {
     if (entry == null) {
-      WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         entry = OverlayEntry(builder: (_) => ChannelObserver());
-        Overlay.of(ctx!)?.insert(entry!);
+        Overlay.of(ctx!).insert(entry!);
       });
     } else {
       entry?.remove();
@@ -112,7 +112,7 @@ class ChannelObserverWidgetState extends State<ChannelObserver> {
                             entry = null;
                           },
                         ));
-                Overlay.of(context)?.insert(entry!);
+                Overlay.of(context).insert(entry!);
               }
             }
           },

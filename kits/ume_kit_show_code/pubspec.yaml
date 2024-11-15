@@ -5,9 +5,8 @@ homepage: https://github.com/ume-community/ume
 publish_to: none
 
 environment:
-  #[Original] sdk: ">=2.12.0 <3.0.0"
-  #[Original] flutter: ">=2.0.0"
   sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -17,8 +16,7 @@ dependencies:
   vm_service: ^14.2.5
   string_scanner: ^1.1.0
 
-  ume_core:
-    path: ../ume_core
+  ume_core: ^2.0.1
 
 dev_dependencies:
   flutter_test:

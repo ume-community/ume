@@ -68,20 +68,66 @@ Flutter 应用内调试工具平台
    ```dart
    void main() {
      if (kDebugMode) {
-       PluginManager.instance                                 // 注册插件
-         ..register(WidgetInfoInspector())
-         ..register(WidgetDetailInspector())
-         ..register(ColorSucker())
-         ..register(AlignRuler())
-         ..register(ColorPicker())                            // 新插件
-         ..register(TouchIndicator())                         // 新插件
-         ..register(Performance())
-         ..register(ShowCode())
-         ..register(MemoryInfoPage())
-         ..register(CpuInfoPage())
-         ..register(DeviceInfoPanel())
-         ..register(Console())
-         ..register(DioInspector(dio: dio));                  // 传入你的 Dio 实例
+       PluginManager.instance
+        // Channel monitor
+        ..register(ChannelMonitor())
+
+        // Channel observer
+        ..register(ChannelObserver())
+
+        // Clean local data
+        ..register(DataCleanPanel())
+
+        // Console
+        ..register(Console())
+
+        // Database
+        ..register(DatabasePanel(databases: []))
+
+        // Designer check
+        ..register(DesignerCheck())
+
+        // Device
+        ..register(CpuInfoPage())
+        ..register(DeviceInfoPanel())
+
+        // Dio
+        ..register(DioInspector(dio: dio))
+
+        // GetConnect
+        ..register(GetConnectInspector(connect: get_connect))
+
+        // Memory detector
+        ..register(MemoryDetectorButton())
+
+        // ..register(const DBViewer())
+
+        // Monitor
+        ..register(MonitorPlugin())
+        ..register(const MonitorActionsPlugin())
+
+        // Perf
+        ..register(Performance())
+        ..register(MemoryInfoPage())
+
+        // SharedPreferences
+        ..register(SharedPreferencesInspector())
+
+        // Show code
+        ..register(ShowCode())
+
+        // Slow animation
+        ..register(SlowAnimation())
+        // UI inspector
+        ..register(WidgetInfoInspector())
+        ..register(WidgetDetailInspector())
+        ..register(ColorSucker())
+        ..register(AlignRuler())
+        ..register(ColorPicker())
+        ..register(TouchIndicator())
+
+        // Custom router
+        ..register(CustomRouterPluggable());
 
        runApp(UMEWidget(child: MyApp(), enable: true)); // 初始化
      } else {
@@ -190,99 +236,6 @@ showDialog(
         <td width="33.33%" align="center"><img src="./screenshots/dio_inspector.png" width="100%" alt="Dio 网络请求调试工具" /></br>Dio 网络请求调试工具</td>
     </tr>
 </table>
-
-## 为 UME 开发插件
-
-> UME 插件位于 `./kits` 目录下，每个插件包都是一个 `package`
-> 本小节示例可参考 [`./custom_plugin_example`](./custom_plugin_example/)
-
-1. `flutter create -t package custom_plugin` 创建一个插件包，可以是 `package`，也可以是 `plugin`
-2. 修改插件包的 `pubspec.yaml`，添加依赖
-
-   ```yaml
-   dependencies:
-     ume: ">=2.0.0 <3.0.0"
-   ```
-
-3. 创建插件配置，实现 `Pluggable` 虚类
-
-   ```dart
-   import 'package:ume_core/ume_core.dart';
-
-   class CustomPlugin implements Pluggable {
-     CustomPlugin({Key key});
-
-     @override
-     Widget buildWidget(BuildContext context) => Container(
-       color: Colors.white
-       width: 100,
-       height: 100,
-       child: Center(
-         child: Text('Custom Plugin')
-       ),
-     ); // 返回插件面板
-
-     @override
-     String get name => 'CustomPlugin'; // 插件名称
-
-     @override
-     String get displayName => 'CustomPlugin';
-
-     @override
-     void onTrigger() {} // 点击插件面板图标时调用
-
-     @override
-     ImageProvider<Object> get iconImageProvider => NetworkImage('url'); // 插件图标
-   }
-   ```
-
-4. 在工程中引入自定义插件
-
-   1. 修改 `pubspec.yaml`，添加依赖
-
-      ```yaml
-      dev_dependencies:
-        custom_plugin:
-          path: path/to/custom_plugin
-      ```
-
-   2. 执行 `flutter pub get`
-
-   3. 引入包
-
-      ```dart
-      import 'package:custom_plugin/custom_plugin.dart';
-      ```
-
-5. 在工程中注册插件
-
-   ```dart
-   if (kDebugMode) {
-     PluginManager.instance
-       ..register(CustomPlugin());
-     runApp(
-       UMEWidget(
-         child: MyApp(),
-         enable: true
-       )
-     );
-   } else {
-     runApp(MyApp());
-   }
-   ```
-
-6. 运行代码
-
-### 快速集成嵌入式插件
-
-自 `0.3.0` 版本起引入了 `PluggableWithNestedWidget`，用以实现在 Widget tree 中插入嵌套 Widget，快速接入嵌入式插件。
-
-可参考 [./kits/ume_kit_ui/lib/components/color_picker/color_picker.dart](https://github.com/bytedance/ume/blob/master/kits/ume_kit_ui/lib/components/color_picker/color_picker.dart) 与 [./kits/ume_kit_ui/lib/components/touch_indicator/touch_indicator.dart](https://github.com/bytedance/ume/blob/master/kits/ume_kit_ui/lib/components/touch_indicator/touch_indicator.dart)。
-
-集成重点如下：
-
-1. 插件主体类实现 `PluggableWithNestedWidget`
-2. 实现 `Widget buildNestedWidget(Widget child)`，在该方法中处理嵌套结构并返回 Widget
 
 ## 如何在 Release/Profile mode 下使用 UME
 

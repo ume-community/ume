@@ -1,3 +1,5 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+## [2.0.0]
+
+- Initial publish.

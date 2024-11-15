@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:isolate';
-import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -91,10 +90,11 @@ class UmeKitChannelObserver {
 class ChannelObserverBinding extends WidgetsFlutterBinding
     with ChannelObserverServicesBinding {
   static WidgetsBinding ensureInitialized() {
-    if (WidgetsBinding.instance == null) {
-      ChannelObserverBinding();
-    }
-    return WidgetsBinding.instance!;
+    // if (WidgetsBinding.instance == null) {
+    ChannelObserverBinding();
+    // }
+    // return WidgetsBinding.instance!;
+    return WidgetsBinding.instance;
   }
 }
 

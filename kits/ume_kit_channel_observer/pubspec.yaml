@@ -1,22 +1,21 @@
 name: ume_kit_channel_observer
-description: A new flutter plugin project.
-version: 0.0.1
+description: Channel Observer for UME Kit
+version: 2.0.0
 homepage: https://github.com/ume-community/ume
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  # flutter: ">=2.5.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  ume_core:
-    path: ../ume_core
+  ume_core: ^2.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints:
 
 flutter:
   plugin:

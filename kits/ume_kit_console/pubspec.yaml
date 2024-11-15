@@ -4,9 +4,8 @@ version: 2.0.0
 homepage: https://github.com/ume-community/ume
 
 environment:
-  #[Original] sdk: ">=2.12.0 <3.0.0"
-  #[Original] flutter: ">=2.0.0"
   sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -15,8 +14,7 @@ dependencies:
   share: ^2.0.4
   shared_preferences: ^2.0.6
 
-  ume_core:
-    path: ../ume_core
+  ume_core: ^2.0.1
 
 dev_dependencies:
   flutter_test:

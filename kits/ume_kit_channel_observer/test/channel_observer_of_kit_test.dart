@@ -1,5 +1,4 @@
 import 'package:ume_kit_channel_observer/ume_kit_channel_observer.dart';
-import 'package:clock/src/clock.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 

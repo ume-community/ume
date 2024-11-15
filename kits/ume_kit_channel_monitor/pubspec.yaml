@@ -2,24 +2,22 @@ name: ume_kit_channel_monitor
 description: channel monitor kit for ume
 version: 2.0.0
 homepage: https://github.com/ume-community/ume
-publish_to: none
 
 environment:
-  #[Original] sdk: ">=2.12.0 <3.0.0"
-  #[Original] flutter: ">=1.17.0"
   sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  ume_core:
-    path: ../ume_core
+  ume_core: ^2.0.1
 
   rxdart: ^0.27.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ">=1.0.0 <3.0.0"
+  flutter_lints:
 
 flutter:
+  uses-material-design: true

@@ -2,10 +2,6 @@
 
 用于记录`platform channel `最近的调用记录,并支持显示的提示可能由于`native`通信所导致的`type error`异常。
 
-支持 release/debug
-
-（参赛作品）
-
 ## 使用
 
 \*\*

@@ -6,7 +6,7 @@ publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  # flutter: ">=2.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
@@ -14,8 +14,7 @@ dependencies:
   get: ^4.0.0
   share_plus: ^10.0.0
 
-  ume_core:
-    path: ../ume_core
+  ume_core: ^2.0.1
 
 dev_dependencies:
   flutter_test:

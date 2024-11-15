@@ -5,14 +5,14 @@ homepage: https://github.com/ume-community/ume
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   image_picker: ^0.8.5
 
-  ume_core:
-    path: ../ume_core
+  ume_core: ^2.0.1
 
 dev_dependencies:
   flutter_test:
