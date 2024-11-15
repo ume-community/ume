@@ -14,8 +14,6 @@ UME is an in-app debug kits platform for Flutter apps.
 
 **Since `^1.0.0`, ume starts adapting to the Flutter 3. See [Quick Start] to learn more.**
 
-<img src="https://github.com/bytedance/ume/raw/master/apk_qrcode.png" width = "128" height = "128" alt="banner" />
-
 Scan QR code or click link to download apk. Try it now!
 https://github.com/bytedance/ume/releases/download/v0.2.1.0/app-debug.apk
 
@@ -63,31 +61,6 @@ Visit [Develop plugin kits for UME](#develop-plugin-kits-for-ume) for more detai
      ume_kit_show_code: ^1.0.0
      ume_kit_console: ^1.0.0
      ume_kit_dio: ^1.0.0
-   ```
-
-   **↓ Null-safety version, compatible with Flutter 2.x**
-
-   ```yaml
-   dev_dependencies: # Don't use UME in release mode
-     ume: ^0.3.0+1
-     ume_kit_ui: ^0.3.0+1
-     ume_kit_device: ^0.3.0
-     ume_kit_perf: ^0.3.0
-     ume_kit_show_code: ^0.3.0
-     ume_kit_console: ^0.3.0
-     ume_kit_dio: ^0.3.0
-   ```
-
-   **↓ Non-null-safety version, compatible with Flutter 1.x**
-
-   ```yaml
-   dev_dependencies: # Don't use UME in release mode
-     ume: ^0.1.1
-     ume_kit_ui: ^0.1.1
-     ume_kit_device: ^0.1.1
-     ume_kit_perf: ^0.1.1
-     ume_kit_show_code: ^0.1.1
-     ume_kit_console: ^0.1.1
    ```
 
 2. Run `flutter pub get`
@@ -175,14 +148,14 @@ There are 13 plugin kits built in the current open source version of UME.
         <td width="33.33%" align="center"><p>UI kits</p></td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/widget_info.png" width="100%" alt="Widget Info" /></br>Widget Info</td>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/widget_detail.png" width="100%" alt="Widget Detail" /></br>Widget Detail</td>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/align_ruler.png" width="100%" alt="Align Ruler" /></br>Align Ruler</td>
+        <td width="33.33%" align="center"><img src="./screenshots/widget_info.png" width="100%" alt="Widget Info" /></br>Widget Info</td>
+        <td width="33.33%" align="center"><img src="./screenshots/widget_detail.png" width="100%" alt="Widget Detail" /></br>Widget Detail</td>
+        <td width="33.33%" align="center"><img src="./screenshots/align_ruler.png" width="100%" alt="Align Ruler" /></br>Align Ruler</td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/color_picker.png" width="100%" alt="Color Picker" /></br>Color Picker</td>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/color_sucker.png" width="100%" alt="Color Sucker" /></br>Color Sucker</td>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/touch_indicator.png" width="100%" alt="Touch Indicator" /></br>Touch Indicator</td>
+        <td width="33.33%" align="center"><img src="./screenshots/color_picker.png" width="100%" alt="Color Picker" /></br>Color Picker</td>
+        <td width="33.33%" align="center"><img src="./screenshots/color_sucker.png" width="100%" alt="Color Sucker" /></br>Color Sucker</td>
+        <td width="33.33%" align="center"><img src="./screenshots/touch_indicator.png" width="100%" alt="Touch Indicator" /></br>Touch Indicator</td>
     </tr>
     <tr>
         <td width="33.33%" align="center"></td>
@@ -191,8 +164,8 @@ There are 13 plugin kits built in the current open source version of UME.
         <td width="33.33%" align="center"><p>Performance Kits</p></td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/memory_info.png" width="100%" alt="Memory Info" /></br>Memory Info</td>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/perf_overlay.png" width="100%" alt="Perf Overlay" /></br>Perf Overlay</td>
+        <td width="33.33%" align="center"><img src="./screenshots/memory_info.png" width="100%" alt="Memory Info" /></br>Memory Info</td>
+        <td width="33.33%" align="center"><img src="./screenshots/perf_overlay.png" width="100%" alt="Perf Overlay" /></br>Perf Overlay</td>
     </tr>
     <tr>
         <td width="33.33%" align="center"></td>
@@ -201,8 +174,8 @@ There are 13 plugin kits built in the current open source version of UME.
         <td width="33.33%" align="center"><p>Device Info Kits</p></td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/cpu_info.png" width="100%" alt="CPU Info" /></br>CPU Info</td>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/device_info.png" width="100%" alt="Device Info" /></br>Device Info</td>
+        <td width="33.33%" align="center"><img src="./screenshots/cpu_info.png" width="100%" alt="CPU Info" /></br>CPU Info</td>
+        <td width="33.33%" align="center"><img src="./screenshots/device_info.png" width="100%" alt="Device Info" /></br>Device Info</td>
     </tr>
     <tr>
         <td width="33.33%" align="center"></td>
@@ -211,7 +184,7 @@ There are 13 plugin kits built in the current open source version of UME.
         <td width="33.33%" align="center"><p>Show Code</p></td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/show_code.png" width="100%" alt="Show Code" /></br>Show Code</td>
+        <td width="33.33%" align="center"><img src="./screenshots/show_code.png" width="100%" alt="Show Code" /></br>Show Code</td>
     </tr>
     <tr>
         <td width="33.33%" align="center"></td>
@@ -220,7 +193,7 @@ There are 13 plugin kits built in the current open source version of UME.
         <td width="33.33%" align="center"><p>Console</p></td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/console.png" width="100%" alt="Console" /></br>Console</td>
+        <td width="33.33%" align="center"><img src="./screenshots/console.png" width="100%" alt="Console" /></br>Console</td>
     </tr>
     <tr>
         <td width="33.33%" align="center"></td>
@@ -229,7 +202,7 @@ There are 13 plugin kits built in the current open source version of UME.
         <td width="33.33%" align="center"><p>Dio Inspector</p></td>
     </tr>
     <tr>
-        <td width="33.33%" align="center"><img src="https://github.com/bytedance/ume/raw/master/screenshots/dio_inspector.png" width="100%" alt="Dio Inspector" /></br>Dio Inspector</td>
+        <td width="33.33%" align="center"><img src="./screenshots/dio_inspector.png" width="100%" alt="Dio Inspector" /></br>Dio Inspector</td>
     </tr>
 </table>
 
