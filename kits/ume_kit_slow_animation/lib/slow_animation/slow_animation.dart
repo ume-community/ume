@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/material.dart';
-import 'package:ume/core/pluggable.dart';
+import 'package:ume_core/core/pluggable.dart';
 
 import 'icon.dart' as icon;
 

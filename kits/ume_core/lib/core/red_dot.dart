@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:ume/core/pluggable_message_service.dart';
-import 'package:ume/core/pluggable.dart';
+import 'package:ume_core/core/pluggable_message_service.dart';
+import 'package:ume_core/core/pluggable.dart';
 
 class RedDot extends StatefulWidget {
   RedDot({Key? key, required this.pluginDatas, this.size = 16})

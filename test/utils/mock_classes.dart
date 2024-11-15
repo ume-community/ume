@@ -4,8 +4,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mockito/mockito.dart';
-import 'package:ume/core/pluggable.dart';
-import 'package:ume/util/store_mixin.dart';
+import 'package:ume_core/core/pluggable.dart';
+import 'package:ume_core/util/store_mixin.dart';
 
 class MockBuildContext extends Mock implements BuildContext {}
 

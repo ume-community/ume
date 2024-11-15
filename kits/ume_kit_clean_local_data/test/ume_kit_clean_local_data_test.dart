@@ -2,7 +2,7 @@ import 'package:ume_kit_clean_local_data/ume_kit_clean_local_data.dart';
 import 'package:ume_kit_clean_local_data/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 import 'mock_classes.dart';
 

@@ -12,7 +12,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ume/core/pluggable.dart';
+import 'package:ume_core/core/pluggable.dart';
 
 import 'instances.dart';
 import 'models/http_interceptor.dart';

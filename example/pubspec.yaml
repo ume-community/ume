@@ -4,7 +4,7 @@ version: 1.0.1
 publish_to: none
 
 environment:
-  #[Original] sdk: ">=2.12.0 <3.0.0"
+  # [Original] sdk: ">=2.12.0 <3.0.0"
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
@@ -17,50 +17,14 @@ dependencies:
   # For get_connect kit
   get: ^4.6.6
 
-dependency_overrides:
-  #[Original]: vm_service: ^9.4.0
-  vm_service: ^14.2.5
-  ume:
-    path: ../
-
 dev_dependencies:
   flutter_driver:
     sdk: flutter
   test: ^1.16.6
+
+  vm_service: ^14.2.5
+
   ume:
     path: ../
-  ume_kit_channel_monitor:
-    path: ../kits/ume_kit_channel_monitor
-  ume_kit_channel_observer:
-    path: ../kits/ume_kit_channel_observer
-  ume_kit_clean_local_data:
-    path: ../kits/ume_kit_clean_local_data
-  ume_kit_console:
-    path: ../kits/ume_kit_console
-  ume_kit_database_kit:
-    path: ../kits/ume_kit_database_kit
-  ume_kit_designer_check:
-    path: ../kits/ume_kit_designer_check
-  ume_kit_device:
-    path: ../kits/ume_kit_device
-  ume_kit_dio:
-    path: ../kits/ume_kit_dio
-  ume_kit_get_connect:
-    path: ../kits/ume_kit_get_connect
-  ume_kit_memory_detector:
-    path: ../kits/ume_kit_memory_detector
-  ume_kit_monitor:
-    path: ../kits/ume_kit_monitor
-  ume_kit_perf:
-    path: ../kits/ume_kit_perf
-  ume_kit_shared_preferences:
-    path: ../kits/ume_kit_shared_preferences
-  ume_kit_show_code:
-    path: ../kits/ume_kit_show_code
-  ume_kit_slow_animation:
-    path: ../kits/ume_kit_slow_animation
-  ume_kit_ui:
-    path: ../kits/ume_kit_ui
-
 flutter:
   uses-material-design: true

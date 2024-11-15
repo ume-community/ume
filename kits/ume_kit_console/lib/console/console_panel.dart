@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:tuple/tuple.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'package:ume_kit_console/console/console_manager.dart';
 import 'package:ume_kit_console/console/icon.dart' as icon;
-import 'package:ume/util/floating_widget.dart';
-import 'package:ume/util/store_mixin.dart';
+import 'package:ume_core/util/floating_widget.dart';
+import 'package:ume_core/util/store_mixin.dart';
 import 'package:ume_kit_console/console/show_date_time_style.dart';
 
 class Console extends StatefulWidget implements PluggableWithStream {

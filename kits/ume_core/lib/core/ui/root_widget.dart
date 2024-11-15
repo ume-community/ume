@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart'
     hide FlutterLogo, FlutterLogoDecoration, FlutterLogoStyle;
-import 'package:ume/core/pluggable_message_service.dart';
-import 'package:ume/core/ui/panel_action_define.dart';
-import 'package:ume/core/plugin_manager.dart';
-import 'package:ume/core/red_dot.dart';
-import 'package:ume/core/store_manager.dart';
-import 'package:ume/core/ui/toolbar_widget.dart';
-import 'package:ume/core/pluggable.dart';
-import 'package:ume/util/binding_ambiguate.dart';
-import 'package:ume/util/constants.dart';
+import 'package:ume_core/core/pluggable_message_service.dart';
+import 'package:ume_core/core/ui/panel_action_define.dart';
+import 'package:ume_core/core/plugin_manager.dart';
+import 'package:ume_core/core/red_dot.dart';
+import 'package:ume_core/core/store_manager.dart';
+import 'package:ume_core/core/ui/toolbar_widget.dart';
+import 'package:ume_core/core/pluggable.dart';
+import 'package:ume_core/util/binding_ambiguate.dart';
+import 'package:ume_core/util/constants.dart';
 import './menu_page.dart';
-import 'package:ume/util/flutter_logo.dart';
+import 'package:ume_core/util/flutter_logo.dart';
 import 'global.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 

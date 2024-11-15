@@ -5,7 +5,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'package:ume_kit_get_connect/ume_kit_get_connect.dart';
 
 import 'mock_classes.dart';

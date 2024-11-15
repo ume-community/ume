@@ -1,5 +1,5 @@
 import 'package:vm_service/vm_service.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 class CodeDisplayService with VMServiceWrapper {
   Future<String?> getIdWithClassName(String className) async {

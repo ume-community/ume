@@ -2,7 +2,7 @@ import 'package:ume_kit_channel_observer/model/package_model.dart';
 import 'package:flutter/material.dart';
 
 import '../ume_kit_channel_observer.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 ///悬浮按钮
 /// * 内部监听[UmeKitChannelObserver.errorStream]，并做状态且换。

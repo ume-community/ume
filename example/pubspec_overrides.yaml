@@ -1,7 +1,9 @@
-# melos_managed_dependency_overrides: ume,ume_kit_channel_monitor,ume_kit_channel_observer,ume_kit_clean_local_data,ume_kit_console,ume_kit_database_kit,ume_kit_designer_check,ume_kit_device,ume_kit_dio,ume_kit_get_connect,ume_kit_monitor,ume_kit_perf,ume_kit_shared_preferences,ume_kit_show_code,ume_kit_slow_animation,ume_kit_ui,vm_service,ume_kit_memory_detector
+# melos_managed_dependency_overrides: ume,ume_kit_channel_monitor,ume_kit_channel_observer,ume_kit_clean_local_data,ume_kit_console,ume_kit_database_kit,ume_kit_designer_check,ume_kit_device,ume_kit_dio,ume_kit_get_connect,ume_kit_memory_detector,ume_kit_monitor,ume_kit_perf,ume_kit_shared_preferences,ume_kit_show_code,ume_kit_slow_animation,ume_kit_ui
 dependency_overrides:
   ume:
-    path: ../
+    path: ..
+  ume_core:
+    path: ../kits/ume_core
   ume_kit_channel_monitor:
     path: ../kits/ume_kit_channel_monitor
   ume_kit_channel_observer:
@@ -34,4 +36,3 @@ dependency_overrides:
     path: ../kits/ume_kit_slow_animation
   ume_kit_ui:
     path: ../kits/ume_kit_ui
-  vm_service: ^14.2.5

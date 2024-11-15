@@ -14,7 +14,9 @@ dependencies:
   tuple: ^2.0.0
   share: ^2.0.4
   shared_preferences: ^2.0.6
-  ume: ^2.0.0
+
+  ume_core:
+    path: ../ume_core
 
 dev_dependencies:
   flutter_test:

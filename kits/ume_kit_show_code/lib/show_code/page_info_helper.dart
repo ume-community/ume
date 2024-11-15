@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ume_kit_show_code/show_code/code_display_service.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 class PageInfoHelper {
   PageInfoHelper() {

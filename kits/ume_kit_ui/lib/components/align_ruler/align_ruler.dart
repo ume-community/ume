@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ume/util/constants.dart';
+import 'package:ume_core/util/constants.dart';
 import 'package:ume_kit_ui/components/hit_test.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'icon.dart' as icon;
 
 class AlignRuler extends StatefulWidget implements Pluggable {

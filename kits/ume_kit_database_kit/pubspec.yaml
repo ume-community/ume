@@ -2,6 +2,7 @@ name: ume_kit_database_kit
 description: Database kit for SQLite, hive and SP.
 version: 0.0.2
 homepage: https://github.com/ume-community/ume
+publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -15,9 +16,11 @@ dependencies:
   hive_flutter: ^1.1.0
   shared_preferences: ^2.0.13
   sqflite: ^2.0.2+1
-  translator: ^0.1.7
+  translator: ^1.0.0
   path: any
-  ume: ^2.0.0
+
+  ume_core:
+    path: ../ume_core
 
 dev_dependencies:
   flutter_test:

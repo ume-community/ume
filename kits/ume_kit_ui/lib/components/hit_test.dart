@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 class HitTest {
   // all of RenderObjects of current point

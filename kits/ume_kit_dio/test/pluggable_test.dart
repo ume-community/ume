@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'package:ume_kit_dio/ume_kit_dio.dart';
 
 import 'mock_classes.dart';

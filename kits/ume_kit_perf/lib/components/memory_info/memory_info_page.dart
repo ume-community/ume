@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'memory_service.dart';
 import 'icon.dart' as icon;
 

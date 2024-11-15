@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ume_kit_shared_preferences/ume_kit_shared_preferences.dart';
 import 'mock_classes.dart';
-import 'package:ume/core/ui/global.dart';
+import 'package:ume_core/core/ui/global.dart';
 
 void main() {
   group('ConsolePanel', () {

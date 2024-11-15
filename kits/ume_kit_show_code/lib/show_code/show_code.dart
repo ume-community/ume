@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'package:ume_kit_show_code/show_code/page_info_helper.dart';
 import 'package:ume_kit_show_code/show_code/syntax_highlighter.dart';
 import 'package:ume_kit_show_code/show_code/icon.dart' as icon;

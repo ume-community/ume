@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'shared_preferences_inspector.dart';
 

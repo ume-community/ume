@@ -5,7 +5,7 @@ import '../memory_detector.dart';
 import '../ume_kit_memory_detector.dart';
 import 'leaked_info_page.dart';
 import 'popup_window.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 /// 作者：李佳奇
 /// 日期：2022/4/25

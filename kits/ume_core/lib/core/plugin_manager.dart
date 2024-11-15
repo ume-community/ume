@@ -1,5 +1,5 @@
-import 'package:ume/ume.dart';
-import 'package:ume/core/pluggable.dart';
+import 'package:ume_core/ume_core.dart';
+import 'package:ume_core/core/pluggable.dart';
 
 class PluginManager {
   static PluginManager? _instance;

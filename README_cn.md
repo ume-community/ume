@@ -4,7 +4,7 @@
 
 Flutter 应用内调试工具平台
 
-[![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/bytedance/ume.svg)](https://github.com/bytedance/ume/blob/master/LICENSE)
+[![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/ume-community/ume.svg)](https://github.com/ume-community/ume/blob/master/LICENSE)
 
 [![pub package](https://img.shields.io/pub/v/ume.svg)](https://pub.dev/packages/ume)
 [![pub package](https://img.shields.io/pub/likes/ume.svg)](https://pub.dev/packages/ume)
@@ -14,8 +14,7 @@ Flutter 应用内调试工具平台
 
 **Since `^1.0.0`, ume starts adapting to the Flutter 3. See [Quick Start] to learn more.**
 
-扫码或点击链接下载 apk，快速体验 UME。
-https://github.com/bytedance/ume/releases/download/v0.2.1.0/app-debug.apk
+点击链接下载 apk，快速体验 UME。 https://github.com/ume-community/ume/releases
 
 最新版本(1.0.1)内置 13 个插件，
 开发者可以创建自己的插件，并集成进 UME 平台。
@@ -54,13 +53,7 @@ https://github.com/bytedance/ume/releases/download/v0.2.1.0/app-debug.apk
 
    ```yaml
    dev_dependencies:
-     ume: ^1.0.1
-     ume_kit_ui: ^1.0.0
-     ume_kit_device: ^1.0.0
-     ume_kit_perf: ^1.0.0
-     ume_kit_show_code: ^1.0.0
-     ume_kit_console: ^1.0.0
-     ume_kit_dio: ^1.0.0
+     ume: ^2.0.0
    ```
 
 2. 执行 `flutter pub get`
@@ -68,12 +61,6 @@ https://github.com/bytedance/ume/releases/download/v0.2.1.0/app-debug.apk
 
    ```dart
    import 'package:ume/ume.dart'; // UME 框架
-   import 'package:ume_kit_ui/ume_kit_ui.dart'; // UI 插件包
-   import 'package:ume_kit_perf/ume_kit_perf.dart'; // 性能插件包
-   import 'package:ume_kit_show_code/ume_kit_show_code.dart'; // 代码查看插件包
-   import 'package:ume_kit_device/ume_kit_device.dart'; // 设备信息插件包
-   import 'package:ume_kit_console/ume_kit_console.dart'; // debugPrint 插件包
-   import 'package:ume_kit_dio/ume_kit_dio.dart'; // Dio 网络请求调试工具
    ```
 
 4. 修改程序入口，增加初始化方法及注册插件代码
@@ -95,10 +82,8 @@ https://github.com/bytedance/ume/releases/download/v0.2.1.0/app-debug.apk
          ..register(DeviceInfoPanel())
          ..register(Console())
          ..register(DioInspector(dio: dio));                  // 传入你的 Dio 实例
-       // ume 0.3.0 版本之后
+
        runApp(UMEWidget(child: MyApp(), enable: true)); // 初始化
-       // ume 0.3.0 版本之前
-       runApp(injectUMEWidget(child: MyApp(), enable: true)); // 初始化
      } else {
        runApp(MyApp());
      }
@@ -216,13 +201,13 @@ showDialog(
 
    ```yaml
    dependencies:
-     ume: ">=0.3.0 <0.4.0"
+     ume: ">=2.0.0 <3.0.0"
    ```
 
 3. 创建插件配置，实现 `Pluggable` 虚类
 
    ```dart
-   import 'package:ume/ume.dart';
+   import 'package:ume_core/ume_core.dart';
 
    class CustomPlugin implements Pluggable {
      CustomPlugin({Key key});
@@ -405,9 +390,9 @@ showDialog(
 - [json2dart_viewer](https://pub.dev/packages/json2dart_viewer)
   - 数据库调试插件
   - 源代码托管于 https://github.com/fastcode555/Json2Dart_Null_Safety 。
-- [memory_detector_of_kit](https://github.com/bladeofgod/memory_detector_of_kit)
+- [ume_kit_memory_detector](https://github.com/bladeofgod/ume_kit_memory_detector)
   - 内存泄漏检测插件
-- [channel_observer_of_kit](https://github.com/bladeofgod/channel_observer_of_kit)
+- [ume_kit_channel_observer](https://github.com/bladeofgod/ume_kit_channel_observer)
   - channel 调用记录监控插件
 - [flutter-ume-kit-dio-enhance](https://github.com/linversion/flutter-ume-kit-dio-enhance)
   - 基于 ume_kit_dio 扩展了一些功能的插件

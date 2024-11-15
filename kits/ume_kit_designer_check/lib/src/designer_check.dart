@@ -5,8 +5,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:ume/core/pluggable.dart';
-import 'package:ume/core/ui/global.dart';
+import 'package:ume_core/core/pluggable.dart';
+import 'package:ume_core/core/ui/global.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'icon.dart' as icon;

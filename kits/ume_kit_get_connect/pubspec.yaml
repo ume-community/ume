@@ -2,6 +2,7 @@ name: ume_kit_get_connect
 description: get_connect kit for ume.
 version: 1.2.0
 homepage: https://github.com/JimmyZDD/ume_kit_get_connect
+publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -11,8 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.0.0
-  ume: ^2.0.0
   share_plus: ^10.0.0
+
+  ume_core:
+    path: ../ume_core
 
 dev_dependencies:
   flutter_test:

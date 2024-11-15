@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:image/image.dart' as img;
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'icon.dart' as icon;
 
 class ColorSucker extends StatefulWidget implements Pluggable {

@@ -8,22 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:ume/ume.dart';
-import 'package:ume_kit_channel_monitor/ume_kit_channel_monitor.dart';
-import 'package:ume_kit_channel_observer/ume_kit_channel_observer.dart';
-import 'package:ume_kit_clean_local_data/ume_kit_clean_local_data.dart';
-import 'package:ume_kit_console/ume_kit_console.dart';
-import 'package:ume_kit_database_kit/ume_kit_database_kit.dart';
-import 'package:ume_kit_designer_check/ume_kit_designer_check.dart';
-import 'package:ume_kit_device/ume_kit_device.dart';
-import 'package:ume_kit_dio/ume_kit_dio.dart';
-import 'package:ume_kit_get_connect/ume_kit_get_connect.dart';
-import 'package:ume_kit_memory_detector/ume_kit_memory_detector.dart';
-import 'package:ume_kit_monitor/ume_kit_monitor.dart';
-import 'package:ume_kit_perf/ume_kit_perf.dart';
-import 'package:ume_kit_shared_preferences/ume_kit_shared_preferences.dart';
-import 'package:ume_kit_show_code/ume_kit_show_code.dart';
-import 'package:ume_kit_slow_animation/ume_kit_slow_animation.dart';
-import 'package:ume_kit_ui/ume_kit_ui.dart';
 
 final Dio dio = Dio()..options = BaseOptions(connectTimeout: 10000);
 final GetConnect get_connect = GetConnect();
@@ -79,8 +63,11 @@ class _UMEAppState extends State<UMEApp> {
         // Memory detector
         ..register(MemoryDetectorButton())
 
+        // ..register(const DBViewer())
+
         // Monitor
         ..register(MonitorPlugin())
+        ..register(const MonitorActionsPlugin())
 
         // Perf
         ..register(Performance())

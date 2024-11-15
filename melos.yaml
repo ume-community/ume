@@ -1,7 +1,6 @@
 name: byte_live_demo
 
 packages:
-  # - kits/ume_kit_*
   - kits/*
   - example
   - custom_plugin_example

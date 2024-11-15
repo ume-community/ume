@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ume/core/ui/global.dart';
+import 'package:ume_core/core/ui/global.dart';
 import 'package:ume_kit_ui/components/widget_info_inspector/widget_info_inspector.dart';
 
 import '../../mock_classes.dart';

@@ -9,8 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  ume: ^2.0.0
   image_picker: ^0.8.5
+
+  ume_core:
+    path: ../ume_core
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:ume_kit_database_kit/ume_kit_database_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 
 import 'data/icon.dart';
 

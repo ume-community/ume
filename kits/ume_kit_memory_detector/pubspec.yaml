@@ -2,6 +2,7 @@ name: ume_kit_memory_detector
 description: A flutter plugin for ume.
 version: 0.0.1
 homepage: https://github.com/ume-community/ume
+publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -9,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  ume_core:
+    path: ../ume_core
 
   vm_service: ^14.2.5
   path: ^1.8.0
@@ -18,8 +22,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-
-  ume: ^2.0.0
 
 flutter:
   plugin:

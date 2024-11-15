@@ -54,13 +54,7 @@ Visit [Develop plugin kits for UME](#develop-plugin-kits-for-ume) for more detai
 
    ```yaml
    dev_dependencies:
-     ume: ^1.0.1
-     ume_kit_ui: ^1.0.0
-     ume_kit_device: ^1.0.0
-     ume_kit_perf: ^1.0.0
-     ume_kit_show_code: ^1.0.0
-     ume_kit_console: ^1.0.0
-     ume_kit_dio: ^1.0.0
+     ume: ^2.0.0
    ```
 
 2. Run `flutter pub get`
@@ -68,12 +62,6 @@ Visit [Develop plugin kits for UME](#develop-plugin-kits-for-ume) for more detai
 
    ```dart
    import 'package:ume/ume.dart'; // UME framework
-   import 'package:ume_kit_ui/ume_kit_ui.dart'; // UI kits
-   import 'package:ume_kit_perf/ume_kit_perf.dart'; // Performance kits
-   import 'package:ume_kit_show_code/ume_kit_show_code.dart'; // Show Code
-   import 'package:ume_kit_device/ume_kit_device.dart'; // Device info
-   import 'package:ume_kit_console/ume_kit_console.dart'; // Show debugPrint
-   import 'package:ume_kit_dio/ume_kit_dio.dart'; // Dio Inspector
    ```
 
 4. Edit main method of your app, register plugin kits and initial UME
@@ -95,10 +83,8 @@ Visit [Develop plugin kits for UME](#develop-plugin-kits-for-ume) for more detai
          ..register(DeviceInfoPanel())
          ..register(Console())
          ..register(DioInspector(dio: dio));                  // Pass in your Dio instance
-       // After ume 0.3.0
+
        runApp(UMEWidget(child: MyApp(), enable: true));
-       // Before ume 0.3.0
-       runApp(injectUMEWidget(child: MyApp(), enable: true));
      } else {
        runApp(MyApp());
      }
@@ -216,13 +202,13 @@ There are 13 plugin kits built in the current open source version of UME.
 
    ```yaml
    dependencies:
-     ume: ">=0.3.0 <0.4.0"
+     ume_core: ^2.0.0
    ```
 
 3. Create the class of the plugin kit which should implement `Pluggable`.
 
    ```dart
-   import 'package:ume/ume.dart';
+   import 'package:ume_core/ume_core.dart';
 
    class CustomPlugin implements Pluggable {
      CustomPlugin({Key key});
@@ -405,9 +391,9 @@ Thanks to the following contributors (names not listed in order)：
 - [json2dart_viewer](https://pub.dev/packages/json2dart_viewer)
   - DB tool
   - Cource code: https://github.com/fastcode555/Json2Dart_Null_Safety 。
-- [memory_detector_of_kit](https://github.com/bladeofgod/memory_detector_of_kit)
+- [ume_kit_memory_detector](https://github.com/bladeofgod/ume_kit_memory_detector)
   - Leaks tool
-- [channel_observer_of_kit](https://github.com/bladeofgod/channel_observer_of_kit)
+- [ume_kit_channel_observer](https://github.com/bladeofgod/ume_kit_channel_observer)
   - Channel communication monitor
 - [flutter-ume-kit-dio-enhance](https://github.com/linversion/flutter-ume-kit-dio-enhance)
   - Plugin base on ume_kit_dio

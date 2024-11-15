@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'icon_data.dart' as icon;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -2,7 +2,11 @@
 
 [简体中文](./CHANGELOG_cn.md)
 
-## [1.2.0]
+## [2.0.1]
+
+- Split out the `ume_core` package.
+
+## [2.0.0]
 
 - Initial community version.
 

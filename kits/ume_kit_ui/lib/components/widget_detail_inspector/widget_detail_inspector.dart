@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart' hide SearchBar;
 import 'package:ume_kit_ui/components/hit_test.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'package:ume_kit_ui/util/binding_ambiguate.dart';
 
 // There was a conflict between the naming of material.SearchBar and ume's SearchBar.

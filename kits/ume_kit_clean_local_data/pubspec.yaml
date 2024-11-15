@@ -10,7 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  ume: ^2.0.0
+
+  ume_core:
+    path: ../ume_core
+
   path_provider: ^2.0.0
   data_size: ^0.2.0
 

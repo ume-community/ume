@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:system_info/system_info.dart';
-import 'package:ume/ume.dart';
+import 'package:ume_core/ume_core.dart';
 import 'icon.dart' as icon;
 import 'package:platform/platform.dart';
 

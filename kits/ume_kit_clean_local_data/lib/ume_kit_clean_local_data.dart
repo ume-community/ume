@@ -5,8 +5,8 @@ import 'dart:convert';
 import 'package:ume_kit_clean_local_data/util.dart';
 import 'package:data_size/data_size.dart';
 import 'package:flutter/material.dart';
-import 'package:ume/ume.dart';
-import 'package:ume/util/floating_widget.dart';
+import 'package:ume_core/ume_core.dart';
+import 'package:ume_core/util/floating_widget.dart';
 
 import 'icon.dart' as icon;
 
