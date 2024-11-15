@@ -24,7 +24,8 @@ ButtonStyle _buttonStyle(
       borderRadius: BorderRadius.circular(999999),
     ),
     backgroundColor: Theme.of(context).primaryColor,
-    primary: Colors.white,
+    // [Original]: primary: Colors.white,
+    foregroundColor: Colors.white,
     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
   );
 }
@@ -116,7 +117,8 @@ class DioPluggableState extends State<DioInspector> {
     return Material(
       color: Colors.black26,
       child: DefaultTextStyle.merge(
-        style: Theme.of(context).textTheme.bodyText2,
+        // [Original]: style: Theme.of(context).textTheme.bodyText2,
+        style: Theme.of(context).textTheme.bodyMedium,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -139,7 +141,8 @@ class DioPluggableState extends State<DioInspector> {
                       const Spacer(),
                       Text(
                         'Dio Requests',
-                        style: Theme.of(context).textTheme.subtitle1,
+                        // [Original]: style: Theme.of(context).textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Expanded(
                         child: Align(
