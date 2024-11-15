@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ume/core/ui/icon_cache.dart';
-import 'package:flutter_ume/core/pluggable_message_service.dart';
-import 'package:flutter_ume/core/red_dot.dart';
-import 'package:flutter_ume/core/store_manager.dart';
-import 'package:flutter_ume/flutter_ume.dart';
+import 'package:ume/core/ui/icon_cache.dart';
+import 'package:ume/core/pluggable_message_service.dart';
+import 'package:ume/core/red_dot.dart';
+import 'package:ume/core/store_manager.dart';
+import 'package:ume/ume.dart';
 import 'dragable_widget.dart';
-import 'package:flutter_ume/core/ui/panel_action_define.dart';
+import 'package:ume/core/ui/panel_action_define.dart';
 
 class MenuPage extends StatefulWidget {
   MenuPage({Key? key, this.action, this.minimalAction, this.closeAction})

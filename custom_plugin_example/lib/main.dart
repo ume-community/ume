@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ume/flutter_ume.dart';
+import 'package:ume/ume.dart';
 import 'custom_log.dart';
 
 void main() {
@@ -58,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Text(
                   '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
+                  // [Original]: style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ],
             ),
@@ -72,7 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       _hasTapped
                           ? 'Open \nCustomLog \nto view log'
                           : 'Tap here 👉',
-                      style: Theme.of(context).textTheme.headline4,
+                      // [Original]: style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     SizedBox(width: 80)
                   ])),

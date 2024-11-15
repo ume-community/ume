@@ -1,20 +1,19 @@
-# melos_managed_dependency_overrides: vm_service,flutter_ume,flutter_ume_kit_channel_monitor,flutter_ume_kit_console,flutter_ume_kit_device,flutter_ume_kit_dio,flutter_ume_kit_perf,flutter_ume_kit_show_code,flutter_ume_kit_ui
+# melos_managed_dependency_overrides: ume,ume_kit_channel_monitor,ume_kit_console,ume_kit_device,ume_kit_dio,ume_kit_perf,ume_kit_show_code,ume_kit_ui,vm_service
 dependency_overrides:
-  #[Original]: vm_service: ^9.4.0
-  vm_service: ^14.2.5
-  flutter_ume:
+  ume:
     path: ../
-  flutter_ume_kit_channel_monitor:
-    path: ../kits/flutter_ume_kit_channel_monitor
-  flutter_ume_kit_console:
-    path: ../kits/flutter_ume_kit_console
-  flutter_ume_kit_device:
-    path: ../kits/flutter_ume_kit_device
-  flutter_ume_kit_dio:
-    path: ../kits/flutter_ume_kit_dio
-  flutter_ume_kit_perf:
-    path: ../kits/flutter_ume_kit_perf
-  flutter_ume_kit_show_code:
-    path: ../kits/flutter_ume_kit_show_code
-  flutter_ume_kit_ui:
-    path: ../kits/flutter_ume_kit_ui
+  ume_kit_channel_monitor:
+    path: ../kits/ume_kit_channel_monitor
+  ume_kit_console:
+    path: ../kits/ume_kit_console
+  ume_kit_device:
+    path: ../kits/ume_kit_device
+  ume_kit_dio:
+    path: ../kits/ume_kit_dio
+  ume_kit_perf:
+    path: ../kits/ume_kit_perf
+  ume_kit_show_code:
+    path: ../kits/ume_kit_show_code
+  ume_kit_ui:
+    path: ../kits/ume_kit_ui
+  vm_service: ^14.2.5

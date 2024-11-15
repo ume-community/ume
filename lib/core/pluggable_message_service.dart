@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:flutter_ume/core/plugin_manager.dart';
-import 'package:flutter_ume/core/pluggable.dart';
+import 'package:ume/core/plugin_manager.dart';
+import 'package:ume/core/pluggable.dart';
 
 class PluggableMessageService {
   static final PluggableMessageService _instance =

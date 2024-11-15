@@ -1,10 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ume/flutter_ume.dart';
+import 'package:ume/ume.dart';
 
 class CustomLog implements Pluggable {
-
   @override
   Widget? buildWidget(BuildContext? context) => _buildLogPanel(context);
 

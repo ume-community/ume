@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_ume/core/plugin_manager.dart';
-import 'package:flutter_ume/core/ui/toolbar_widget.dart';
+import 'package:ume/core/plugin_manager.dart';
+import 'package:ume/core/ui/toolbar_widget.dart';
 
 import '../../utils/mock_classes.dart';
 

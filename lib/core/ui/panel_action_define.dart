@@ -1,4 +1,4 @@
-import 'package:flutter_ume/core/pluggable.dart';
+import 'package:ume/core/pluggable.dart';
 
 typedef MenuAction = void Function(Pluggable?);
 typedef MinimalAction = void Function();

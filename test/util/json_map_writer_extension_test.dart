@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_ume/util/json_map_writer_extension.dart';
+import 'package:ume/util/json_map_writer_extension.dart';
 
 void main() {
   const String testValueFlag = 'TEST_VALUE_FLAG';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ume/flutter_ume.dart';
+import 'package:ume/ume.dart';
 import 'package:tuple/tuple.dart';
 import 'icon.dart' as icon;
 

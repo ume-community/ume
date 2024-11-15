@@ -37,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.bytedance.flutter_ume_example"
+        applicationId "com.bytedance.ume_example"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

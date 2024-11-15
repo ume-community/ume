@@ -16,5 +16,5 @@ jobs:
           webhook: ${{ secrets.FEISHU_WEBHOOK_URL }}
           title: Notify
           content: |
-            https://github.com/bytedance/flutter_ume/releases
+            https://github.com/bytedance/ume/releases
             from: ${{ github.repository }}

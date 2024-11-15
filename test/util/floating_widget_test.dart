@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tuple/tuple.dart';
-import 'package:flutter_ume/core/ui/global.dart';
-import 'package:flutter_ume/util/floating_widget.dart';
+import 'package:ume/core/ui/global.dart';
+import 'package:ume/util/floating_widget.dart';
 
 void main() {
   group('FloatingWidget', () {

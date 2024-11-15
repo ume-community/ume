@@ -14,49 +14,49 @@ updates:
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_channel_monitor"
+    directory: "/kits/ume_kit_channel_monitor"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_console"
+    directory: "/kits/ume_kit_console"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_device"
+    directory: "/kits/ume_kit_device"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_dio"
+    directory: "/kits/ume_kit_dio"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_perf"
+    directory: "/kits/ume_kit_perf"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_show_code"
+    directory: "/kits/ume_kit_show_code"
     schedule:
       interval: weekly
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
   - package-ecosystem: "pub"
-    directory: "/kits/flutter_ume_kit_ui"
+    directory: "/kits/ume_kit_ui"
     schedule:
       interval: weekly
       time: "09:00"

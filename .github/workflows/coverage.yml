@@ -6,12 +6,12 @@ on:
       - master
     paths:
       - "lib/**"
-      - "kits/flutter_ume_kit_console/lib/**"
-      - "kits/flutter_ume_kit_device/lib/**"
-      - "kits/flutter_ume_kit_perf/lib/**"
-      - "kits/flutter_ume_kit_show_code/lib/**"
-      - "kits/flutter_ume_kit_ui/lib/**"
-      - "kits/flutter_ume_kit_dio/lib/**"
+      - "kits/ume_kit_console/lib/**"
+      - "kits/ume_kit_device/lib/**"
+      - "kits/ume_kit_perf/lib/**"
+      - "kits/ume_kit_show_code/lib/**"
+      - "kits/ume_kit_ui/lib/**"
+      - "kits/ume_kit_dio/lib/**"
     tags:
       - "coverage-*"
 
@@ -36,31 +36,31 @@ jobs:
       - run: |
           flutter pub get
           flutter pub run flutter_coverage_badge
-        working-directory: kits/flutter_ume_kit_device
+        working-directory: kits/ume_kit_device
       - run: |
           flutter pub get
           flutter pub run flutter_coverage_badge
-        working-directory: kits/flutter_ume_kit_perf
+        working-directory: kits/ume_kit_perf
       - run: |
           flutter pub get
           flutter pub run flutter_coverage_badge --exclude lib/show_code/syntax_highlighter.dart
-        working-directory: kits/flutter_ume_kit_show_code
+        working-directory: kits/ume_kit_show_code
       - run: |
           flutter pub get
           flutter pub run flutter_coverage_badge --exclude lib/third_party/cyclop
-        working-directory: kits/flutter_ume_kit_ui
+        working-directory: kits/ume_kit_ui
       - run: |
           flutter pub get
           flutter pub run flutter_coverage_badge
-        working-directory: kits/flutter_ume_kit_console
+        working-directory: kits/ume_kit_console
       - run: |
           flutter pub get
           flutter pub run flutter_coverage_badge
-        working-directory: kits/flutter_ume_kit_dio
+        working-directory: kits/ume_kit_dio
       - name: Commit badges
         run: |
           git config --global user.name smileShirely
           git config --global user.email smileShirely@users.noreply.github.com
-          git add coverage_badge.svg kits/flutter_ume_kit_device/coverage_badge.svg kits/flutter_ume_kit_perf/coverage_badge.svg kits/flutter_ume_kit_show_code/coverage_badge.svg kits/flutter_ume_kit_ui/coverage_badge.svg kits/flutter_ume_kit_console/coverage_badge.svg kits/flutter_ume_kit_dio/coverage_badge.svg
+          git add coverage_badge.svg kits/ume_kit_device/coverage_badge.svg kits/ume_kit_perf/coverage_badge.svg kits/ume_kit_show_code/coverage_badge.svg kits/ume_kit_ui/coverage_badge.svg kits/ume_kit_console/coverage_badge.svg kits/ume_kit_dio/coverage_badge.svg
           git commit -m "Automated report coverage"
           git push

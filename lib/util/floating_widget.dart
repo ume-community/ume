@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ume/core/ui/panel_action_define.dart';
-import 'package:flutter_ume/util/constants.dart';
+import 'package:ume/core/ui/panel_action_define.dart';
+import 'package:ume/util/constants.dart';
 import 'package:tuple/tuple.dart';
-import 'package:flutter_ume/util/store_mixin.dart';
+import 'package:ume/util/store_mixin.dart';
 
 typedef ToolbarAction = void Function();
 

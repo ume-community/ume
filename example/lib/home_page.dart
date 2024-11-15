@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:example/ume_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ume/flutter_ume.dart';
+import 'package:ume/ume.dart';
 import 'package:provider/provider.dart';
 
 import 'main.dart';

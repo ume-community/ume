@@ -24,19 +24,19 @@ jobs:
         run: flutter test --enable-vmservice
       - name: Run test for UME Device kit
         run: flutter test --enable-vmservice
-        working-directory: kits/flutter_ume_kit_device
+        working-directory: kits/ume_kit_device
       - name: Run test for UME Perf kit
         run: flutter test --enable-vmservice
-        working-directory: kits/flutter_ume_kit_perf
+        working-directory: kits/ume_kit_perf
       - name: Run test for UME Show code kit
         run: flutter test --enable-vmservice
-        working-directory: kits/flutter_ume_kit_show_code
+        working-directory: kits/ume_kit_show_code
       - name: Run test for UME UI kit
         run: flutter test --enable-vmservice
-        working-directory: kits/flutter_ume_kit_ui
+        working-directory: kits/ume_kit_ui
       - name: Run test for UME Console kit
         run: flutter test --enable-vmservice
-        working-directory: kits/flutter_ume_kit_console
+        working-directory: kits/ume_kit_console
       - name: Run test for UME Dio kit
         run: flutter test --enable-vmservice
-        working-directory: kits/flutter_ume_kit_dio
+        working-directory: kits/ume_kit_dio

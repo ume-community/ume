@@ -1,4 +1,4 @@
-package com.bytedance.flutter_ume_example
+package com.bytedance.ume_example
 
 import io.flutter.embedding.android.FlutterActivity
 

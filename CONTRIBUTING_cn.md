@@ -36,9 +36,9 @@
 
 ## 如何提 Issue
 
-1. 点击本仓库的 [Issue 页面](https://github.com/bytedance/flutter_ume/issues)
+1. 点击本仓库的 [Issue 页面](https://github.com/bytedance/ume/issues)
 2. 先搜索是否有和你类似情况的 issue，若有请直接在该 issue 中反馈问题
-3. 若没有类似情况 issue，点击 [New issue 按钮](https://github.com/bytedance/flutter_ume/issues/new/choose)
+3. 若没有类似情况 issue，点击 [New issue 按钮](https://github.com/bytedance/ume/issues/new/choose)
 4. 选择一个适合你的 issue 模板
 5. 在模板中填写对应信息
 6. 如果有能复现问题的最简 Demo 就再好不过了
@@ -68,11 +68,11 @@
 
 以下为标准的 Commit message 示例：
 
-``` plaintext
+```plaintext
 [fix] README.md document syntax error
 ```
 
-``` plaintext
+```plaintext
 [feat] New feature description
 
 [https://flutter.dev/dash](https://flutter.dev/dash)

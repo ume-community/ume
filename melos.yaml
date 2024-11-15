@@ -1,7 +1,8 @@
 name: byte_live_demo
 
 packages:
-  - kits/flutter_ume_kit_*
+  # - kits/ume_kit_*
+  - kits/*
   - example
   - custom_plugin_example
   - .
@@ -19,7 +20,7 @@ scripts:
     description: Run demo app.
     select-package:
       scope:
-        - 'example'
+        - "example"
 
   build:example_android:
     run: |
@@ -30,7 +31,7 @@ scripts:
       dir-exists:
         - android
       scope:
-        - 'example'
+        - "example"
 
   build:example_ios:
     run: |
@@ -41,4 +42,4 @@ scripts:
       dir-exists:
         - ios
       scope:
-        - 'example'
+        - "example"
