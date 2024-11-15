@@ -37,7 +37,8 @@ class OpacitySlider extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: Text(Labels.opacity, style: textTheme.subtitle2),
+                // [Original]: child: Text(Labels.opacity, style: textTheme.subtitle2),
+                child: Text(Labels.opacity, style: textTheme.titleSmall),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -65,7 +66,8 @@ class OpacitySlider extends StatelessWidget {
                     child: Text(
                       '${(opacity * 100).toInt()}%',
                       textAlign: TextAlign.center,
-                      style: textTheme.bodyText1,
+                      // [Original]: style: textTheme.bodyText1,
+                      style: textTheme.bodyMedium,
                     ),
                   )
                 ],

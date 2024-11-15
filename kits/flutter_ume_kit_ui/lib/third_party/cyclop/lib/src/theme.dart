@@ -17,8 +17,12 @@ const defaultBorderRadius = BorderRadius.all(Radius.circular(defaultRadius));
 
 final lightTheme = ThemeData.light().copyWith(
   scaffoldBackgroundColor: const Color(0xfff0f0f0),
-  backgroundColor: const Color(0xffdadada),
-  toggleableActiveColor: Colors.cyan,
+// [Original]: backgroundColor: const Color(0xffdadada),
+  // [Original]: toggleableActiveColor: Colors.cyan,
+  colorScheme: ThemeData.light().colorScheme.copyWith(
+        onSurface: const Color(0xffdadada), // 替代 backgroundColor
+        secondary: Colors.cyan, // 替代 toggleableActiveColor
+      ),
   inputDecorationTheme: ThemeData.light().inputDecorationTheme.copyWith(
         isDense: true,
         fillColor: Colors.white,
@@ -36,8 +40,12 @@ final lightTheme = ThemeData.light().copyWith(
 );
 
 final darkTheme = ThemeData.dark().copyWith(
-  backgroundColor: Colors.grey.shade700,
-  toggleableActiveColor: Colors.cyan,
+  // [Original]: backgroundColor: Colors.grey.shade700,
+  // [Original]: toggleableActiveColor: Colors.cyan,
+  colorScheme: ThemeData.dark().colorScheme.copyWith(
+        onSurface: Colors.grey.shade700, // 替代 backgroundColor
+        secondary: Colors.cyan, // 替代 toggleableActiveColor
+      ),
   textSelectionTheme: ThemeData.light()
       .textSelectionTheme
       .copyWith(selectionColor: Colors.cyan.shade700),
@@ -50,25 +58,41 @@ final darkTheme = ThemeData.dark().copyWith(
 );
 
 final _lightTextButtonStyle = ButtonStyle(
-  shape: MaterialStateProperty.all(
+  //[Original]: shape: MaterialStateProperty.all(
+  shape: WidgetStateProperty.all(
     const RoundedRectangleBorder(borderRadius: defaultBorderRadius),
   ),
-  padding: MaterialStateProperty.all(
+  // [Original]: padding: MaterialStateProperty.all(
+  padding: WidgetStateProperty.all(
     const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
   ),
-  foregroundColor: MaterialStateProperty.all(Colors.grey.shade700),
-  overlayColor: MaterialStateProperty.all(Colors.white30),
+  // [Original]: foregroundColor: MaterialStateProperty.all(
+  foregroundColor: WidgetStateProperty.all(
+    Colors.grey.shade700,
+  ),
+  // [Original]: overlayColor: MaterialStateProperty.all(
+  overlayColor: WidgetStateProperty.all(
+    Colors.white30,
+  ),
 );
 
 final _darkTextButtonStyle = ButtonStyle(
-  shape: MaterialStateProperty.all(
+  // [Original]: shape: MaterialStateProperty.all(
+  shape: WidgetStateProperty.all(
     const RoundedRectangleBorder(borderRadius: defaultBorderRadius),
   ),
-  padding: MaterialStateProperty.all(
+  // [Original]: padding: MaterialStateProperty.all(
+  padding: WidgetStateProperty.all(
     const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
   ),
-  foregroundColor: MaterialStateProperty.all(Colors.white70),
-  overlayColor: MaterialStateProperty.all(Colors.black12),
+  // [Original]: foregroundColor: MaterialStateProperty.all(
+  foregroundColor: WidgetStateProperty.all(
+    Colors.white70,
+  ),
+  // [Original]: overlayColor: MaterialStateProperty.all(
+  overlayColor: WidgetStateProperty.all(
+    Colors.black12,
+  ),
 );
 
 const defaultDivider = Divider(
