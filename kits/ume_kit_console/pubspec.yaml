@@ -1,11 +1,12 @@
 name: ume_kit_console
 description: Show debugPrint kit for ume.
-version: 1.1.0
-homepage: https://github.com/bytedance/ume
+version: 2.0.0
+homepage: https://github.com/ume-community/ume
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0"
+  #[Original] sdk: ">=2.12.0 <3.0.0"
+  #[Original] flutter: ">=2.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -13,7 +14,7 @@ dependencies:
   tuple: ^2.0.0
   share: ^2.0.4
   shared_preferences: ^2.0.6
-  ume: ">=1.0.0 <2.0.0"
+  ume: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +26,4 @@ dev_dependencies:
       ref: 59b7580f406bb712e9d9049c8c99212946e34f65
 
 flutter:
+  uses-material-design: true

@@ -5,8 +5,8 @@ import 'dart:convert';
 import 'core/channel_binding.dart';
 import 'icon.dart' as icon;
 
-class ChannelPlugin extends Pluggable {
-  ChannelPlugin() {
+class ChannelMonitor extends Pluggable {
+  ChannelMonitor() {
     ChannelBinding.ensureInitialized();
   }
 

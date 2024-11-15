@@ -85,7 +85,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               },
-              child: const Text('Make multiple network requests'),
+              child: const Text('Make multiple network requests (Dio)'),
+            ),
+            TextButton(
+              onPressed: () {
+                Future.wait<void>(
+                  List<Future<void>>.generate(
+                    10,
+                    (int i) => Future<void>.delayed(
+                      Duration(seconds: i),
+                      () => get_connect.get(
+                        'https://api.github.com'
+                        '/?_t=${DateTime.now().millisecondsSinceEpoch}&$i',
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Make multiple network requests (GetConnect)'),
             ),
           ],
         ),

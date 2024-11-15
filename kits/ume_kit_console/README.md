@@ -1,6 +1,6 @@
 # ume_kit_console
 
-[ume](https://pub.dev/packages/ume) 是由字节跳动 Flutter Infra 团队出品的应用内调试工具平台。
+[ume](https://pub.dev/packages/ume) 是一款 Flutter 应用内调试工具平台。
 
 ume_kit_console 是 ume 的日志查看插件包。接入方式请见 [ume](https://pub.dev/packages/ume)。
 
@@ -29,7 +29,7 @@ class UmeConsoleOutput extends LogOutput {
 
 ---
 
-[ume](https://pub.dev/packages/ume) is an in-app debug kits platform produced for Flutter apps by ByteDance Flutter Infra team.
+[ume](https://pub.dev/packages/ume) is an in-app debug kits platform produced for Flutter apps.
 
 ume_kit_console is the Console kits package of ume. Please visit [ume](https://pub.dev/packages/ume) for details.
 

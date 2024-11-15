@@ -1,16 +1,17 @@
 name: ume_kit_ui
 description: UI Kits for ume.
-version: 1.1.1
-homepage: https://github.com/bytedance/ume
+version: 2.0.0
+homepage: https://github.com/ume-community/ume
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0"
+  #[Original] sdk: ">=2.12.0 <3.0.0"
+  #[Original] flutter: ">=2.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  ume: ">=1.0.0 <2.0.0"
+  ume: ^2.0.0
   touch_indicator: ^2.0.0
 
   # for Cyclop
@@ -28,3 +29,4 @@ dev_dependencies:
       ref: 59b7580f406bb712e9d9049c8c99212946e34f65
 
 flutter:
+  uses-material-design: true
