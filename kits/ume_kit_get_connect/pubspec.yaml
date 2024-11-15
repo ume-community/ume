@@ -1,0 +1,26 @@
+name: ume_kit_get_connect
+description: get_connect kit for ume.
+version: 1.2.0
+homepage: https://github.com/JimmyZDD/ume_kit_get_connect
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  # flutter: ">=2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.0.0
+  ume: ^2.0.0
+  share_plus: ^10.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.12
+  flutter_coverage_badge:
+    git:
+      url: https://github.com/smileShirely/flutter_coverage_badge.git
+      ref: 59b7580f406bb712e9d9049c8c99212946e34f65
+# dependency_overrides:
+#   vm_service: 13.0.0

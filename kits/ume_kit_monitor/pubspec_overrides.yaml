@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: ume
+dependency_overrides:
+  ume:
+    path: ../..
