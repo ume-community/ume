@@ -1,0 +1,4 @@
+name: ume
+packages:
+  - ume_kits/packages/*
+  - ume_core

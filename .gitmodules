@@ -1,0 +1,6 @@
+[submodule "ume_core"]
+	path = ume_core
+	url = https://github.com/ume-community/ume_core
+[submodule "ume_kits"]
+	path = ume_kits
+	url = https://github.com/ume-community/ume_kits
