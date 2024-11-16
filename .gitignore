@@ -29,7 +29,7 @@
 .pub-cache/
 .pub/
 build/
-*pubspec.lock
+**/pubspec.lock
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -78,3 +78,6 @@ build/
 # Coverage
 **/coverage/output/
 **/coverage/new_lcov.info
+
+# Melos
+**/pubspec_overrides.yaml

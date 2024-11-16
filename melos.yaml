@@ -1,4 +1,10 @@
 name: ume
 packages:
+  - example
   - ume_kits/packages/*
   - ume_core
+
+command:
+  bootstrap:
+    # runPubGetOffline: true
+    runPubGetInParallel: false
