@@ -1,6 +1,7 @@
 name: ume
 packages:
   - example
+  - .
   - ume_kits/packages/*
   - ume_core
 
