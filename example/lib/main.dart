@@ -9,7 +9,8 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:ume/ume.dart';
 
-final Dio dio = Dio()..options = BaseOptions(connectTimeout: 10000);
+final Dio dio = Dio()
+  ..options = BaseOptions(connectTimeout: Duration(seconds: 10));
 final GetConnect get_connect = GetConnect();
 
 final navigatorKey = GlobalKey<NavigatorState>();
