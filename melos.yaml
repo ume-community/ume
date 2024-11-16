@@ -8,4 +8,4 @@ packages:
 command:
   bootstrap:
     # runPubGetOffline: true
-    runPubGetInParallel: false
+    runPubGetInParallel: true

@@ -14,7 +14,10 @@ final GetConnect get_connect = GetConnect();
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
-void main() => runApp(const UMEApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const UMEApp());
+}
 
 class UMEApp extends StatefulWidget {
   const UMEApp({Key? key}) : super(key: key);
@@ -33,7 +36,7 @@ class _UMEAppState extends State<UMEApp> {
     if (kDebugMode) {
       PluginManager.instance
         // Channel monitor
-        ..register(ChannelMonitor())
+        // ..register(ChannelMonitor())
 
         // Channel observer
         ..register(ChannelObserver())
@@ -67,7 +70,7 @@ class _UMEAppState extends State<UMEApp> {
 
         // Monitor
         ..register(MonitorPlugin())
-        ..register(const MonitorActionsPlugin())
+        // ..register(const MonitorActionsPlugin())
 
         // Perf
         ..register(Performance())
