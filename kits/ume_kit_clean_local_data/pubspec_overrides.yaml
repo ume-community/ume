@@ -1,4 +1,0 @@
-# melos_managed_dependency_overrides: ume_core
-dependency_overrides:
-  ume_core:
-    path: ../ume_core

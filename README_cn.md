@@ -2,7 +2,7 @@
 
 [English](./README.md)
 
-Flutter 应用内调试工具平台
+[社区版] Flutter 应用内调试工具平台
 
 [![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/ume-community/ume.svg)](https://github.com/ume-community/ume/blob/master/LICENSE)
 

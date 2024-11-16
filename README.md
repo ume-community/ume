@@ -2,7 +2,7 @@
 
 [简体中文](./README_cn.md)
 
-UME is an in-app debug kits platform for Flutter apps.
+[Community Version] UME is an in-app debug kits platform for Flutter apps.
 
 [![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/bytedance/ume.svg)](https://github.com/bytedance/ume/blob/master/LICENSE)
 
