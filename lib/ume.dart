@@ -5,7 +5,7 @@ export 'package:ume_kit_channel_monitor/ume_kit_channel_monitor.dart';
 export 'package:ume_kit_channel_observer/ume_kit_channel_observer.dart';
 export 'package:ume_kit_clean_local_data/ume_kit_clean_local_data.dart';
 export 'package:ume_kit_console/ume_kit_console.dart';
-export 'package:ume_kit_database_kit/ume_kit_database_kit.dart';
+export 'package:ume_kit_database/ume_kit_database.dart';
 export 'package:ume_kit_designer_check/ume_kit_designer_check.dart';
 export 'package:ume_kit_device/ume_kit_device.dart';
 export 'package:ume_kit_dio/ume_kit_dio.dart';

@@ -332,7 +332,7 @@ Thanks to the following contributors (names not listed in order)：
 - [ume_kit_clean_local_data](https://pub.dev/packages/ume_kit_clean_local_data)
   - Clean local data
   - Cource code: https://github.com/cfug/ume_kits 。
-- [ume_kit_database_kit](https://pub.dev/packages/ume_kit_database_kit)
+- [ume_kit_database](https://pub.dev/packages/ume_kit_database)
   - DB tool
   - Cource code: https://github.com/cfug/ume_kits 。
 - [ume_kit_monitor](https://pub.dev/packages/ume_kit_monitor)

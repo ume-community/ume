@@ -331,7 +331,7 @@ showDialog(
 - [ume_kit_clean_local_data](https://pub.dev/packages/ume_kit_clean_local_data)
   - 清理本地数据插件
   - 源代码托管于 https://github.com/cfug/ume_kits 。
-- [ume_kit_database_kit](https://pub.dev/packages/ume_kit_database_kit)
+- [ume_kit_database](https://pub.dev/packages/ume_kit_database)
   - 数据库调试插件
   - 源代码托管于 https://github.com/cfug/ume_kits 。
 - [ume_kit_monitor](https://pub.dev/packages/ume_kit_monitor)
