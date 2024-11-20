@@ -55,8 +55,11 @@ class _UMEAppState extends State<UMEApp> {
         ..register(DesignerCheck())
 
         // Device
-        ..register(CpuInfoPage())
-        ..register(DeviceInfoPanel())
+        // ..register(CpuInfoPage())
+        // ..register(DeviceInfoPanel())
+        // ..register(BatteryInfoPage())
+        // ..register(NetworkInfoPage())
+        ..register(DeviceInfo())
 
         // Dio
         ..register(DioInspector(dio: dio))
@@ -70,7 +73,7 @@ class _UMEAppState extends State<UMEApp> {
         // ..register(const DBViewer())
 
         // Monitor
-        ..register(MonitorPlugin())
+        // ..register(MonitorPlugin())
         // ..register(const MonitorActionsPlugin())
 
         // Perf
