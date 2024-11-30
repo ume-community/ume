@@ -3,6 +3,9 @@ description: Community Version of UME is an in-app debug kits platform for Flutt
 version: 2.0.4
 homepage: https://github.com/ume-community/ume
 topics: [debug, in-app-debug, diagnostics, console, plugin, ume]
+screenshots:
+  - description: "ume"
+  image: ume_logo_256.png
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
