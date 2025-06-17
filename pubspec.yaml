@@ -1,11 +1,11 @@
 name: ume
 description: Community Version of UME is an in-app debug kits platform for Flutter apps.
-version: 2.0.4
+version: 2.0.6
 homepage: https://github.com/ume-community/ume
-topics: [debug, in-app-debug, diagnostics, console, plugin, ume]
+topics: [debug, in-app-debug, diagnostics, plugin, ume]
 screenshots:
-  - description: "ume"
-  image: ume_logo_256.png
+  - description: "ume logo with transparent background"
+    path: ume_logo_256.png
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -19,11 +19,11 @@ dependencies:
 
   shared_preferences: ^2.0.15
 
-  vm_service: ^14.2.5
+  vm_service: ^15.0.0
 
   tuple: ^2.0.0
 
-  ume_core: ^2.0.1
+  ume_core: ^2.0.2
   ume_kit_channel_monitor: ^2.0.0
   ume_kit_channel_observer: ^2.0.0
   ume_kit_clean_local_data: ^2.0.0
@@ -33,12 +33,14 @@ dependencies:
   ume_kit_device: ^2.0.0
   ume_kit_dio: ^2.0.1
   ume_kit_get_connect: ^2.0.0
-  ume_kit_memory_detector: ^2.0.0
+  ume_kit_memory_detector: ^2.0.1
   ume_kit_monitor: ^2.0.0
-  ume_kit_perf: ^2.0.0
+  ume_kit_perf: ^2.0.1
   ume_kit_shared_preferences: ^2.0.0
-  ume_kit_show_code: ^2.0.0
+  ume_kit_show_code: ^2.0.2
   ume_kit_slow_animation: ^2.0.0
+  # ume_kit_storage:
+  #   path: ./ume_kits/packages/ume_kit_storage
   ume_kit_ui: ^2.0.0
 
 dev_dependencies:
