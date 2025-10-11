@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.3
+
+* bump dependencie's version
+
 ## 1.1.0
 
 * 增加 `consolePrint` 方法，用于适配其他日志库。

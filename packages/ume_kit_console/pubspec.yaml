@@ -1,6 +1,6 @@
 name: ume_kit_console
 description: Show debugPrint kit for ume.
-version: 2.0.2
+version: 2.0.3
 homepage: https://github.com/ume-community/ume_kits
 
 environment:
@@ -12,10 +12,10 @@ dependencies:
     sdk: flutter
   tuple: ^2.0.0
   # share: ^2.0.4
-  share_plus: ^11.0.0
+  share_plus: ^12.0.0
   shared_preferences: ^2.3.3
 
-  talker: ^4.5.1 # 日志工具
+  talker: ^5.0.0 # 日志工具
 
   ume_core: ^2.0.1
 
