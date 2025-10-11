@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4
+
+bump dependencie's version
+
 ## 1.0.0
 
 * 正式版
