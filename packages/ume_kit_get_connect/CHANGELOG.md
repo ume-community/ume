@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2
+
+* bump dependencies version
+
 ## 1.0.0
 
 - 正式版
