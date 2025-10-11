@@ -1,10 +1,14 @@
 # Changelog
 
-[2.0.2]
+## 2.0.4
+
+bump dependencie's version
+
+## 2.0.2
 
 - Add copyright information.
 
-[2.0.1]
+## 2.0.1
 
 - Update dependencies.
 
@@ -14,6 +18,6 @@
 
 - Add package information.
 
-[2.0.0]
+## 2.0.0
 
 - Use ume_core.
