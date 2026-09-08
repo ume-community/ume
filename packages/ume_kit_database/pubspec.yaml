@@ -1,18 +1,20 @@
 name: ume_kit_database
+resolution: workspace
 description: Database kit for SQLite, hive and SP.
 version: 2.0.0
 homepage: https://github.com/ume-community/ume_kits
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.9.0 <4.0.0"
   flutter: ">=3.0.0"
 
 dependencies:
-  data_table_2: ^2.2.1
+  data_table_2: ^3.0.0
   flutter:
     sdk: flutter
   hive: ^2.1.0
   hive_flutter: ^1.1.0
+  material_ui: ^1.1.1
   shared_preferences: ^2.0.13
   sqflite: ^2.0.2+1
   translator: ^1.0.0
@@ -23,7 +25,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
-
+  flutter_lints: ^6.0.0
 flutter:
   uses-material-design: true

@@ -1,10 +1,11 @@
 name: ume_kit_monitor
+resolution: workspace
 description: Monitor plugin for UME.
 version: 2.0.0
 homepage: https://github.com/ume-community/ume_kits
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.9.0 <4.0.0"
   flutter: ">=3.0.0"
 
 dependencies:

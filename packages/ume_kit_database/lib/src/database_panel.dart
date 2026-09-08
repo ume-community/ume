@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:ume_kit_database/ume_kit_database.dart';
 import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:ume_core/ume_core.dart';
 
 import 'data/icon.dart';
@@ -555,10 +556,10 @@ class _DatabasePanelState extends State<DatabasePanel>
                       size: ColumnSize.S,
                     );
                   }),
-                  rows: List<DataRow>.generate(
+                  rows: List<DataRow2>.generate(
                     datas.length,
                     (index) {
-                      return DataRow(
+                      return DataRow2(
                         cells: List.generate(columns.length, (cIndex) {
                           String data = "";
                           if (currentDatabaseType == DatabaseType.sqlite ||
@@ -573,7 +574,7 @@ class _DatabasePanelState extends State<DatabasePanel>
                               data = datas[index].values.first.toString();
                             }
                           }
-                          return DataCell(tableData is HiveTableData
+                          return material_ui.DataCell(tableData is HiveTableData
                               ? Text(data)
                               : TextField(
                                   enabled: _enabledTextFiled(updateConditions!,

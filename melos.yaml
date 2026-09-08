@@ -1,9 +1,0 @@
-name: ume_kits
-
-packages:
-  - packages/*
-
-command:
-  bootstrap:
-    usePubspecOverrides: true
-    runPubGetInParallel: false

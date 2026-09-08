@@ -1,10 +1,11 @@
 name: ume_kit_clean_local_data
+resolution: workspace
 description: Clean local data tool for UME Kit
 version: 2.0.0
 homepage: https://github.com/ume-community/ume_kits
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.9.0 <4.0.0"
   flutter: ">=3.0.0"
 
 dependencies:
@@ -19,7 +20,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^6.0.0
   mockito: ^5.0.12
 
 flutter:
