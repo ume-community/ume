@@ -1,10 +1,11 @@
 name: example
+resolution: workspace
 description: "A new Flutter project."
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.4
+  sdk: ">=3.9.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -17,13 +18,17 @@ dependencies:
   # For get_connect kit
   get: ^4.6.6
 
+  flutter_bloc: ^9.0.0
+
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
-
+  flutter_driver:
+    sdk: flutter
+  test: any
+  flutter_lints: ^6.0.0
   vm_service: ^15.0.0
 
   ume:

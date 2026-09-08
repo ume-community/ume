@@ -8,8 +8,31 @@ screenshots:
     path: ume_logo_256.png
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.9.0 <4.0.0"
   flutter: ">=3.0.0"
+
+workspace:
+  - example
+  - ume_core
+  - ume_kits/packages/ume_kit_bloc_inspector
+  - ume_kits/packages/ume_kit_channel_monitor
+  - ume_kits/packages/ume_kit_channel_observer
+  - ume_kits/packages/ume_kit_clean_local_data
+  - ume_kits/packages/ume_kit_console
+  - ume_kits/packages/ume_kit_database
+  - ume_kits/packages/ume_kit_designer_check
+  - ume_kits/packages/ume_kit_device
+  - ume_kits/packages/ume_kit_dio
+  - ume_kits/packages/ume_kit_example
+  - ume_kits/packages/ume_kit_get_connect
+  - ume_kits/packages/ume_kit_memory_detector
+  - ume_kits/packages/ume_kit_monitor
+  - ume_kits/packages/ume_kit_perf
+  - ume_kits/packages/ume_kit_shared_preferences
+  - ume_kits/packages/ume_kit_show_code
+  - ume_kits/packages/ume_kit_slow_animation
+  - ume_kits/packages/ume_kit_storage
+  - ume_kits/packages/ume_kit_ui
 
 dependencies:
   flutter:
@@ -24,6 +47,8 @@ dependencies:
   tuple: ^2.0.0
 
   ume_core: ^2.0.2
+  ume_kit_bloc_inspector:
+    path: ./ume_kits/packages/ume_kit_bloc_inspector
   ume_kit_channel_monitor: ^2.0.0
   ume_kit_channel_observer: ^2.0.0
   ume_kit_clean_local_data: ^2.0.0
@@ -47,7 +72,7 @@ dev_dependencies:
   flutter_lints: any
   flutter_test:
     sdk: flutter
-  melos: ^7.0.0
+  melos: ^8.6.0
   mockito: ^5.3.2
   flutter_coverage_badge:
     git:
@@ -57,3 +82,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+melos:
+  useRootAsPackage: true
+  bootstrap:
+    runPubGetInParallel: true
