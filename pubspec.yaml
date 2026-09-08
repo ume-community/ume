@@ -47,8 +47,7 @@ dependencies:
   tuple: ^2.0.0
 
   ume_core: ^2.0.2
-  ume_kit_bloc_inspector:
-    path: ./ume_kits/packages/ume_kit_bloc_inspector
+  ume_kit_bloc_inspector: ^0.0.1
   ume_kit_channel_monitor: ^2.0.0
   ume_kit_channel_observer: ^2.0.0
   ume_kit_clean_local_data: ^2.0.0
