@@ -1,10 +1,15 @@
 name: Flutter Drive (integration)
 
 # example 的集成测试（flutter drive）。
+#
+# 背景：原配置用 macos-latest + arch=x86_64 启动 Android 模拟器，但现代
+# macOS runner 为 arm64，x86_64 模拟器无法启动（adb: device not found），
+# 该 job 长期失败。改用 ubuntu + KVM（Android 模拟器在 CI 上最可靠的方案）。
+#
 # 说明：
 #   - example/test_driver 依赖 flutter_driver + test（已在 example dev_dependencies 声明）
-#   - 已移除过时的 `architecture: x64`（现代 macOS runner 为 arm64）
-#   - 仅在 example 或 kit 源码变更时运行，避免文档改动也跑重型模拟器
+#   - KVM 加速需要 udev 规则（见下）
+#   - 仅在 example / lib / kit 源码变更时运行，避免文档改动也跑重型模拟器
 on:
   push:
     branches: [master]
@@ -12,12 +17,14 @@ on:
       - "example/**"
       - "lib/**"
       - "pkgs/**"
+      - ".github/workflows/flutter_drive.yml"
   pull_request:
     branches: [master]
     paths:
       - "example/**"
       - "lib/**"
       - "pkgs/**"
+      - ".github/workflows/flutter_drive.yml"
   workflow_dispatch:
 
 concurrency:
@@ -27,7 +34,7 @@ concurrency:
 jobs:
   drive_android:
     name: Drive (android, api ${{ matrix.api-level }})
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -48,6 +55,14 @@ jobs:
       - name: Resolve workspace
         run: flutter pub get
 
+      # 启用 KVM 硬件加速（android-emulator-runner 官方建议）
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
+            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
       - name: Gradle cache
         uses: actions/cache@v4
         with:
@@ -57,10 +72,35 @@ jobs:
           key: gradle-${{ runner.os }}-${{ hashFiles('example/android/**/*.gradle*', 'example/android/gradle/wrapper/gradle-wrapper.properties') }}
           restore-keys: gradle-${{ runner.os }}-
 
+      # 缓存 AVD，显著加快后续运行
+      - name: AVD cache
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ matrix.api-level }}
+
+      - name: Create AVD and generate snapshot for caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          working-directory: example
+          script: echo "Generated AVD snapshot for caching."
+
       - name: Run Flutter Driver tests
         uses: reactiveCircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
           arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
           working-directory: example
           script: flutter drive --target=test_driver/app.dart
