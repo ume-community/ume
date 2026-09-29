@@ -1,0 +1,25 @@
+name: ume_kit_shared_preferences
+resolution: workspace
+description: Shared preferences kit for UME.
+version: 2.0.0
+homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_shared_preferences
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: "^2.0.7"
+  cupertino_icons: ^1.0.2
+
+  ume_core: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.12
+
+flutter:
+  uses-material-design: true

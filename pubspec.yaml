@@ -8,14 +8,14 @@ screenshots:
     path: ume_logo_256.png
 
 environment:
-  # `workspace` 使用 glob（pkgs/*）需要语言版本 3.11+
+  # `workspace` 使用 glob（packages/*）需要语言版本 3.11+
   sdk: ">=3.11.0 <4.0.0"
   flutter: ">=3.0.0"
 
 workspace:
   - example
   # 所有 kit + ume_core（glob 自动纳入新增包）
-  - pkgs/*
+  - packages/*
 
 dependencies:
   flutter:
@@ -40,7 +40,7 @@ dependencies:
   ume_kit_dio: ^2.0.1
   ume_kit_get_connect: ^2.0.0
   ume_kit_memory_detector: ^2.0.1
-  ume_kit_monitor: ^2.0.0
+  ume_kit_traffic: ^2.0.0
   ume_kit_perf: ^2.0.1
   ume_kit_shared_preferences: ^2.0.0
   ume_kit_show_code: ^2.0.2

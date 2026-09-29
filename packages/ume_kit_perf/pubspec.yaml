@@ -1,0 +1,28 @@
+name: ume_kit_perf
+resolution: workspace
+description: Performance kits for ume.
+version: 2.0.1
+homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_perf
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  vm_service: ^15.0.0
+
+  ume_core: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.12
+  flutter_coverage_badge:
+    git:
+      url: https://github.com/smileShirely/flutter_coverage_badge.git
+      ref: 59b7580f406bb712e9d9049c8c99212946e34f65
+
+flutter:
+  uses-material-design: true

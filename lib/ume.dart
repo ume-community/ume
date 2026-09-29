@@ -11,7 +11,7 @@ export 'package:ume_kit_device/ume_kit_device.dart';
 export 'package:ume_kit_dio/ume_kit_dio.dart';
 export 'package:ume_kit_get_connect/ume_kit_get_connect.dart';
 export 'package:ume_kit_memory_detector/ume_kit_memory_detector.dart';
-export 'package:ume_kit_monitor/ume_kit_monitor.dart';
+export 'package:ume_kit_traffic/ume_kit_traffic.dart';
 export 'package:ume_kit_perf/ume_kit_perf.dart';
 export 'package:ume_kit_shared_preferences/ume_kit_shared_preferences.dart';
 export 'package:ume_kit_show_code/ume_kit_show_code.dart';

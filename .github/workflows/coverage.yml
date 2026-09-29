@@ -11,8 +11,8 @@ on:
     branches: [master]
     paths:
       - "lib/**"
-      - "pkgs/*/lib/**"
-      - "pkgs/*/test/**"
+      - "packages/*/lib/**"
+      - "packages/*/test/**"
   workflow_dispatch:
 
 permissions:
@@ -42,27 +42,27 @@ jobs:
         run: dart run flutter_coverage_badge --exclude lib/util/flutter_logo.dart
 
       - name: Badge for ume_kit_device
-        working-directory: pkgs/ume_kit_device
+        working-directory: packages/ume_kit_device
         run: dart run flutter_coverage_badge
 
       - name: Badge for ume_kit_perf
-        working-directory: pkgs/ume_kit_perf
+        working-directory: packages/ume_kit_perf
         run: dart run flutter_coverage_badge
 
       - name: Badge for ume_kit_show_code
-        working-directory: pkgs/ume_kit_show_code
+        working-directory: packages/ume_kit_show_code
         run: dart run flutter_coverage_badge --exclude lib/show_code/syntax_highlighter.dart
 
       - name: Badge for ume_kit_ui
-        working-directory: pkgs/ume_kit_ui
+        working-directory: packages/ume_kit_ui
         run: dart run flutter_coverage_badge --exclude lib/third_party/cyclop
 
       - name: Badge for ume_kit_console
-        working-directory: pkgs/ume_kit_console
+        working-directory: packages/ume_kit_console
         run: dart run flutter_coverage_badge
 
       - name: Badge for ume_kit_dio
-        working-directory: pkgs/ume_kit_dio
+        working-directory: packages/ume_kit_dio
         run: dart run flutter_coverage_badge
 
       - name: Commit badges
@@ -71,12 +71,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add coverage_badge.svg \
-                  pkgs/ume_kit_device/coverage_badge.svg \
-                  pkgs/ume_kit_perf/coverage_badge.svg \
-                  pkgs/ume_kit_show_code/coverage_badge.svg \
-                  pkgs/ume_kit_ui/coverage_badge.svg \
-                  pkgs/ume_kit_console/coverage_badge.svg \
-                  pkgs/ume_kit_dio/coverage_badge.svg
+                  packages/ume_kit_device/coverage_badge.svg \
+                  packages/ume_kit_perf/coverage_badge.svg \
+                  packages/ume_kit_show_code/coverage_badge.svg \
+                  packages/ume_kit_ui/coverage_badge.svg \
+                  packages/ume_kit_console/coverage_badge.svg \
+                  packages/ume_kit_dio/coverage_badge.svg
           if git diff --cached --quiet; then
             echo "徽章无变化，跳过提交"
           else

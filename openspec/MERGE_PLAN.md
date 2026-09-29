@@ -35,33 +35,33 @@ ume-community/ume        (主仓库, 190 commits, 14MB)  ── submodule ──
 | 6 | **官方先例支持单仓库+workspace+独立发布** | dart-lang/sdk：根 `pubspec.yaml` 列 100+ 包，`analyzer` 等各自发布 pub.dev |
 | 7 | **6 个"未发布 kit"是空占位目录** | `ume_kit_appwrite/brick/catcher/firebase/get_it/supabase` 仅含 `.gitkeep` |
 | 8 | **发布成员包时 `resolution: workspace` 会保留但不影响消费者** | 已发布 `analyzer-14.4.0` pubspec 含该字段，消费者 `pub get` 正常 |
-| 9 | **`.pubignore` 可将发布体积 10MB → 51KB** | 实测：排除 `example/ pkgs/ build/` 后 `Total compressed archive size: 51 KB` |
+| 9 | **`.pubignore` 可将发布体积 10MB → 51KB** | 实测：排除 `example/ packages/ build/` 后 `Total compressed archive size: 51 KB` |
 | 10 | **`ume_kits` 有真实未提交工作（合并前必须保全）** | `ume_kit_bloc_inspector` 为完整新 kit（21 文件）；另有 `dark_side/`、`platform_tab.dart`、`device_info.dart`、`network_tab.dart`、`ume_kit_ui.dart` 改动 |
 
 ---
 
 ## 3. 目标仓库结构
 
-采用官方 `dart-lang/sdk` 模式（`pkgs/` 集中放包），保留 `example`：
+采用官方 `dart-lang/sdk` 模式（`packages/` 集中放包），保留 `example`：
 
 ```
 ume/                                  ← 单一仓库
 ├── pubspec.yaml                      ← workspace 根（name: ume, publish_to 保留）
 ├── pubspec.lock                       ← 唯一 lock（提交）
 ├── melos.yaml                         ← melos 辅助（脚本/版本/发布编排）
-├── .pubignore                         ← ★ 排除 example/、pkgs/，减小发布体积
+├── .pubignore                         ← ★ 排除 example/、packages/，减小发布体积
 ├── lib/ume.dart                       ← façade（re-export 全部 kit）
 ├── example/                           ← 保留；Flutter app，publish_to: none
-├── pkgs/                              ← 原 ume_kits/packages/* 迁入
+├── packages/                              ← 原 ume_kits/packages/* 迁入
 │   ├── ume_kit_bloc_inspector/
 │   ├── ume_kit_channel_monitor/
 │   ├── ...（17 个真实 kit）
 │   └── ume_kit_storage/
-└── core/                              ← 原 ume_core 迁入（或 pkgs/ume_core）
+└── core/                              ← 原 ume_core 迁入（或 packages/ume_core）
     └── pubspec.yaml
 ```
 
-**决策点**：`ume_core` 放 `core/` 还是 `pkgs/ume_core/`？→ 建议 `pkgs/ume_core`，与官方 `pkgs/` 惯例一致，减少顶层目录。
+**决策点**：`ume_core` 放 `core/` 还是 `packages/ume_core/`？→ 建议 `packages/ume_core`，与官方 `packages/` 惯例一致，减少顶层目录。
 
 ---
 
@@ -72,25 +72,25 @@ ume/                                  ← 单一仓库
 **演练结果**：用 `git subtree` 在本地克隆上完整跑通——
 ```
 190 (ume) + 13 (ume_core) + 25 (ume_kits) = 231 commits  ✅ 历史完整保留
-最终结构: pkgs/ume_core/ + pkgs/ume_kit_*/ (17 个真实 kit)
+最终结构: packages/ume_core/ + packages/ume_kit_*/ (17 个真实 kit)
 ```
 
 **具体命令**（用本地 `.git/modules/*` 作为 remote，无需网络）：
 ```bash
-# A1. ume_core → pkgs/ume_core
+# A1. ume_core → packages/ume_core
 git remote add core_src .git/modules/ume_core
 git fetch core_src main
-git subtree add --prefix=pkgs/ume_core core_src main
+git subtree add --prefix=packages/ume_core core_src main
 
 # A2. ume_kits → 先并入临时 prefix，再整理路径
 git remote add kits_src .git/modules/ume_kits
 git fetch kits_src main
 git subtree add --prefix=_kits_tmp kits_src main
-git mv _kits_tmp/packages/* pkgs/          # packages/* → pkgs/*
-git mv _kits_tmp/LICENSE pkgs/ume_kits_LICENSE
-git mv _kits_tmp/README.md pkgs/ume_kits_README.md
+git mv _kits_tmp/packages/* packages/          # packages/* → packages/*
+git mv _kits_tmp/LICENSE packages/ume_kits_LICENSE
+git mv _kits_tmp/README.md packages/ume_kits_README.md
 rm -rf _kits_tmp
-git commit -m "chore: reorganize kits into pkgs/"
+git commit -m "chore: reorganize kits into packages/"
 ```
 
 > **注意**：`git subtree` 只取**已提交**历史。`ume_kits` 的未提交工作（bloc_inspector 等）需在阶段 0 先处置。
@@ -116,20 +116,20 @@ git commit -m "chore: reorganize kits into pkgs/"
 **实测结论（目标结构已验证 ✅）**：
 ```
 workspace:
-  - pkgs/ume_core
-  - pkgs/ume_kit_console
+  - packages/ume_core
+  - packages/ume_kit_console
   - ...
   - example
 dependencies:
   ume_core: ^2.0.2        # workspace 自动解析到本地
   ume_kit_console: ^2.0.0
 ```
-→ `dart pub get` 成功，解析出 `ume`(根) + `pkgs/*` + `example` 全部成员。
+→ `dart pub get` 成功，解析出 `ume`(根) + `packages/*` + `example` 全部成员。
 
-**⚠️ 关于 glob `pkgs/*`**（实测）：
+**⚠️ 关于 glob `packages/*`**（实测）：
 | 写法 | SDK 要求 | 结果 |
 |---|---|---|
-| `pkgs/*` glob | **`>=3.11.0`** | 3.9 报错 "Glob syntax is only supported from language version 3.11" |
+| `packages/*` glob | **`>=3.11.0`** | 3.9 报错 "Glob syntax is only supported from language version 3.11" |
 | 显式列路径 | `>=3.9.0` | ✅ 通过 |
 
 → **建议**：用显式路径（保持 3.9 兼容）；若接受把根 SDK 提到 `>=3.11.0`，则可用 glob 自动纳入新增 kit。
@@ -137,8 +137,8 @@ dependencies:
 | 文件 | 改动 |
 |---|---|
 | 根 `pubspec.yaml` | 加 `workspace:`；依赖改全部 kit（版本约束） |
-| `pkgs/*/pubspec.yaml` | 保留 `resolution: workspace` |
-| `pkgs/ume_core/pubspec.yaml` | 保留 `resolution: workspace` |
+| `packages/*/pubspec.yaml` | 保留 `resolution: workspace` |
+| `packages/ume_core/pubspec.yaml` | 保留 `resolution: workspace` |
 | 删除 | `.gitmodules`、`ume_core/`、`ume_kits/` |
 | 新增 | `.pubignore`（实测 10MB → 51KB） |
 
@@ -164,7 +164,7 @@ jobs:
 
 - kit 各自发布用独立 tag 前缀（如 `ume_kit_console-v2.0.5`）
 - example 构建 + GitHub Release
-- Dependabot 路径修正（`/kits/*` → `/pkgs/*`）
+- Dependabot 路径修正（`/kits/*` → `/packages/*`）
 
 ### 阶段 E：归档旧仓库
 
@@ -208,7 +208,7 @@ gh api -X PATCH repos/ume-community/ume_kits -f archived=true
 
 ## 7. 待确认问题
 
-1. **`ume_core` 放 `pkgs/ume_core` 还是顶层 `core/`？**
+1. **`ume_core` 放 `packages/ume_core` 还是顶层 `core/`？**
 2. **6 个空占位 kit（appwrite/brick/catcher/...）是否清理？**
 3. **`ume_kit_bloc_inspector` 先发布，还是从 facade 移除？**
 4. **`ume_kits` submodule 里的未提交改动如何处理？**（bloc_inspector、catcher、dark_side、platform_tab 等）

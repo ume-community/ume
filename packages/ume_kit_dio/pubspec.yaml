@@ -1,0 +1,26 @@
+name: ume_kit_dio
+resolution: workspace
+description: Dio kit for ume.
+version: 2.0.1
+homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_dio
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  dio: ^5.7.0
+
+  ume_core: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.12
+  flutter_coverage_badge:
+    git:
+      url: https://github.com/smileShirely/flutter_coverage_badge.git
+      ref: 59b7580f406bb712e9d9049c8c99212946e34f65

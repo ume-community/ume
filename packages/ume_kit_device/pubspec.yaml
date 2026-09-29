@@ -1,0 +1,40 @@
+name: ume_kit_device
+resolution: workspace
+description: Device info kit for ume.
+version: 2.0.4
+homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_device
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  battery_plus: ^7.0.0
+  connectivity_plus: ^7.0.0
+  network_info_plus: ^8.2.1
+  package_info_plus: ^10.2.1
+  device_info_plus: ^13.2.0
+
+  # sensors_plus: ^6.1.0
+
+  system_info2: ^4.0.0
+
+  share_plus: ^13.3.0
+
+  platform: ^3.0.0
+
+  ume_core: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.12
+  flutter_coverage_badge:
+    git:
+      url: https://github.com/smileShirely/flutter_coverage_badge.git
+      ref: 59b7580f406bb712e9d9049c8c99212946e34f65
+
+flutter:
+  uses-material-design: true

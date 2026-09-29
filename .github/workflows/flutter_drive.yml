@@ -16,14 +16,14 @@ on:
     paths:
       - "example/**"
       - "lib/**"
-      - "pkgs/**"
+      - "packages/**"
       - ".github/workflows/flutter_drive.yml"
   pull_request:
     branches: [master]
     paths:
       - "example/**"
       - "lib/**"
-      - "pkgs/**"
+      - "packages/**"
       - ".github/workflows/flutter_drive.yml"
   workflow_dispatch:
 

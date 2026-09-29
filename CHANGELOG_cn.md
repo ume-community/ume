@@ -5,7 +5,7 @@
 ## [2.0.7]
 
 - 仓库迁移至 https://github.com/insightop/ume
-- monorepo 迁移为单仓库 Dart pub workspace（所有 kit 收拢到 `pkgs/`）
+- monorepo 迁移为单仓库 Dart pub workspace（所有 kit 收拢到 `packages/`）
 - 发布包只含 façade（约 47 KB），不再打包整个仓库（约 10 MB）
 - CI：静态分析、逐包测试、example APK 构建，以及 tag 触发 + GitHub OIDC 自动发布
 

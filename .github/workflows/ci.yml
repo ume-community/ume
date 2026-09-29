@@ -49,18 +49,18 @@ jobs:
         # 仅包含「有 test/ 目录」的包；无测试的 kit 会被跳过（而非失败）。
         package:
           - example
-          - pkgs/ume_core
-          - pkgs/ume_kit_channel_observer
-          - pkgs/ume_kit_clean_local_data
-          - pkgs/ume_kit_console
-          - pkgs/ume_kit_database
-          - pkgs/ume_kit_dio
-          - pkgs/ume_kit_get_connect
-          - pkgs/ume_kit_memory_detector
-          - pkgs/ume_kit_perf
-          - pkgs/ume_kit_shared_preferences
-          - pkgs/ume_kit_show_code
-          - pkgs/ume_kit_ui
+          - packages/ume_core
+          - packages/ume_kit_channel_observer
+          - packages/ume_kit_clean_local_data
+          - packages/ume_kit_console
+          - packages/ume_kit_database
+          - packages/ume_kit_dio
+          - packages/ume_kit_get_connect
+          - packages/ume_kit_memory_detector
+          - packages/ume_kit_perf
+          - packages/ume_kit_shared_preferences
+          - packages/ume_kit_show_code
+          - packages/ume_kit_ui
     steps:
       - uses: actions/checkout@v4
 

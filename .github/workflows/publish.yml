@@ -19,7 +19,7 @@ on:
   workflow_dispatch:
     inputs:
       package_dir:
-        description: "要发布的包目录（相对仓库根），例如 pkgs/ume_kit_console"
+        description: "要发布的包目录（相对仓库根），例如 packages/ume_kit_console"
         required: true
         type: string
 
@@ -53,9 +53,9 @@ jobs:
             elif [[ "$TAG" =~ ^(ume_kit_[a-z0-9_]+)-v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
               PKG="${BASH_REMATCH[1]}"
               VERSION="${BASH_REMATCH[2]}"
-              DIR="pkgs/${PKG}"
+              DIR="packages/${PKG}"
             elif [[ "$TAG" =~ ^(ume_core)-v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
-              DIR="pkgs/ume_core"
+              DIR="packages/ume_core"
               VERSION="${BASH_REMATCH[2]}"
             else
               echo "::error::无法从 tag '$TAG' 解析出包目录"

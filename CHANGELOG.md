@@ -5,7 +5,7 @@
 ## [2.0.7]
 
 - Repository moved to https://github.com/insightop/ume
-- Migrate the monorepo to a single-repo Dart pub workspace (all kits under `pkgs/`)
+- Migrate the monorepo to a single-repo Dart pub workspace (all kits under `packages/`)
 - Publish only the facade (~47 KB) instead of the whole repository (~10 MB)
 - CI: static analysis, per-package tests, example APK build, and tag-triggered publishing via GitHub OIDC
 

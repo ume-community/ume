@@ -332,9 +332,9 @@ showDialog(
 - [ume_kit_database](https://pub.dev/packages/ume_kit_database)
   - 数据库调试插件
   - 源代码托管于 https://github.com/cfug/ume_kits 。
-- [ume_kit_monitor](https://pub.dev/packages/ume_kit_monitor)
-  - 参数监控插件
-  - 源代码托管于 https://github.com/fastcode555/ume_kit_monitor 。
+- [ume_kit_traffic](https://pub.dev/packages/ume_kit_traffic)
+  - 网络请求 / 日志 / 页面监控工具
+  - 源代码：https://github.com/insightop/ume/tree/master/packages/ume_kit_traffic 。
 - [json2dart_viewerffi](https://pub.dev/packages/json2dart_viewerffi)
   - 数据库调试插件
   - 源代码托管于 https://github.com/fastcode555/Json2Dart_Null_Safety 。

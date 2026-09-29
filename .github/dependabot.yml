@@ -8,7 +8,7 @@
 version: 2
 enable-beta-ecosystems: true
 updates:
-  # Dart / Flutter 依赖（workspace 根，覆盖 ume / example / pkgs/*）
+  # Dart / Flutter 依赖（workspace 根，覆盖 ume / example / packages/*）
   - package-ecosystem: "pub"
     directory: "/"
     schedule:

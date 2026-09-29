@@ -4,7 +4,7 @@
 # 实际 kit 源码各自发布到 pub.dev，无需打进ume 归档。
 # 这样发布包从 ~10MB 降到 ~51KB。
 example/
-pkgs/
+packages/
 build/
 coverage/
 screenshots/
