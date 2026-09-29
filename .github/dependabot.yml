@@ -1,64 +1,39 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
+# Dependabot 版本更新配置
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
+#
+# 本仓库已迁移为 Dart pub workspace（单仓库 + 根 pubspec.yaml 的 workspace 字段）。
+# Dependabot 自 dependabot-core#10445 起支持 pub workspaces：
+#   - 只需在 workspace 根配置一个 pub ecosystem 条目即可覆盖全部成员包
+#   - 子包的 pubspec.yaml 不再需要单独配置（独立配置会因 resolution: workspace 而解析失败）
 version: 2
 enable-beta-ecosystems: true
 updates:
+  # Dart / Flutter 依赖（workspace 根，覆盖 ume / example / pkgs/*）
   - package-ecosystem: "pub"
     directory: "/"
     schedule:
       interval: weekly
+      day: monday
       time: "09:00"
       timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_channel_monitor"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - dependencies
+      - dart
+
+  # GitHub Actions 依赖（workflow 里用到的 action）
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: weekly
+      day: monday
       time: "09:00"
       timezone: Asia/Shanghai
     open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_console"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_device"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_dio"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_perf"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_show_code"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
-  - package-ecosystem: "pub"
-    directory: "/kits/ume_kit_ui"
-    schedule:
-      interval: weekly
-      time: "09:00"
-      timezone: Asia/Shanghai
-    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(ci)"
+    labels:
+      - dependencies
+      - github-actions

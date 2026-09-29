@@ -1,66 +1,85 @@
-name: coverage
+name: Coverage badges
 
+# 在 master 上（源码变更时）为选定包重新生成覆盖率徽章并提交。
+# 单仓库 pub workspace：根目录 `pub get` 后按包执行。
+#
+# 说明：
+#   - 使用 `dart run` 取代已废弃的 `flutter pub run`
+#   - 徽章产物由 bot 直接提交回 master，因此需要 contents: write
 on:
   push:
-    branches:
-      - master
+    branches: [master]
     paths:
       - "lib/**"
-      - "kits/ume_kit_console/lib/**"
-      - "kits/ume_kit_device/lib/**"
-      - "kits/ume_kit_perf/lib/**"
-      - "kits/ume_kit_show_code/lib/**"
-      - "kits/ume_kit_ui/lib/**"
-      - "kits/ume_kit_dio/lib/**"
-    tags:
-      - "coverage-*"
+      - "pkgs/*/lib/**"
+      - "pkgs/*/test/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coverage-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  badges:
+    name: Regenerate coverage badges
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
         with:
-          ref: ${{ env.GITHUB_REF }}
-      - uses: actions/setup-java@v2
-        with:
-          distribution: "adopt"
-          java-version: "11"
-      - name: Flutter action
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge --exclude lib/util/flutter_logo.dart
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge
-        working-directory: kits/ume_kit_device
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge
-        working-directory: kits/ume_kit_perf
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge --exclude lib/show_code/syntax_highlighter.dart
-        working-directory: kits/ume_kit_show_code
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge --exclude lib/third_party/cyclop
-        working-directory: kits/ume_kit_ui
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge
-        working-directory: kits/ume_kit_console
-      - run: |
-          flutter pub get
-          flutter pub run flutter_coverage_badge
-        working-directory: kits/ume_kit_dio
+          channel: stable
+          cache: true
+
+      - name: Resolve workspace
+        run: flutter pub get
+
+      # 根包 ume（排除内置 logo 绘制文件）
+      - name: Badge for ume
+        run: dart run flutter_coverage_badge --exclude lib/util/flutter_logo.dart
+
+      - name: Badge for ume_kit_device
+        working-directory: pkgs/ume_kit_device
+        run: dart run flutter_coverage_badge
+
+      - name: Badge for ume_kit_perf
+        working-directory: pkgs/ume_kit_perf
+        run: dart run flutter_coverage_badge
+
+      - name: Badge for ume_kit_show_code
+        working-directory: pkgs/ume_kit_show_code
+        run: dart run flutter_coverage_badge --exclude lib/show_code/syntax_highlighter.dart
+
+      - name: Badge for ume_kit_ui
+        working-directory: pkgs/ume_kit_ui
+        run: dart run flutter_coverage_badge --exclude lib/third_party/cyclop
+
+      - name: Badge for ume_kit_console
+        working-directory: pkgs/ume_kit_console
+        run: dart run flutter_coverage_badge
+
+      - name: Badge for ume_kit_dio
+        working-directory: pkgs/ume_kit_dio
+        run: dart run flutter_coverage_badge
+
       - name: Commit badges
         run: |
-          git config --global user.name smileShirely
-          git config --global user.email smileShirely@users.noreply.github.com
-          git add coverage_badge.svg kits/ume_kit_device/coverage_badge.svg kits/ume_kit_perf/coverage_badge.svg kits/ume_kit_show_code/coverage_badge.svg kits/ume_kit_ui/coverage_badge.svg kits/ume_kit_console/coverage_badge.svg kits/ume_kit_dio/coverage_badge.svg
-          git commit -m "Automated report coverage"
-          git push
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add coverage_badge.svg \
+                  pkgs/ume_kit_device/coverage_badge.svg \
+                  pkgs/ume_kit_perf/coverage_badge.svg \
+                  pkgs/ume_kit_show_code/coverage_badge.svg \
+                  pkgs/ume_kit_ui/coverage_badge.svg \
+                  pkgs/ume_kit_console/coverage_badge.svg \
+                  pkgs/ume_kit_dio/coverage_badge.svg
+          if git diff --cached --quiet; then
+            echo "徽章无变化，跳过提交"
+          else
+            git commit -m "chore: automated coverage badges [skip ci]"
+            git push
+          fi

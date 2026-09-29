@@ -1,0 +1,92 @@
+name: Publish to pub.dev
+
+# 通过 git tag 触发发布，使用 pub.dev 官方的 GitHub OIDC 免密自动化发布。
+#
+# tag 约定（需与 pub.dev 后台 "Automated publishing" 里为每个包配置的 tag pattern 一致）：
+#   根包 ume          -> v{{version}}                    例如 v2.0.7
+#   kit 包            -> <包名>-v{{version}}             例如 ume_kit_console-v2.0.4
+#   ume_core          -> ume_core-v{{version}}           例如 ume_core-v2.0.3
+#
+# 例：
+#   git tag v2.0.7 && git push origin v2.0.7
+#   git tag ume_kit_console-v2.0.4 && git push origin ume_kit_console-v2.0.4
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"                    # 根包 ume
+      - "ume_core-v[0-9]+.[0-9]+.[0-9]+"
+      - "ume_kit_*-v[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+    inputs:
+      package_dir:
+        description: "要发布的包目录（相对仓库根），例如 pkgs/ume_kit_console"
+        required: true
+        type: string
+
+jobs:
+  # 从 tag 解析出「包目录」与「期望版本」，并校验与 pubspec 一致
+  resolve:
+    name: Resolve package from tag
+    runs-on: ubuntu-latest
+    outputs:
+      package_dir: ${{ steps.resolve.outputs.package_dir }}
+      version: ${{ steps.resolve.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve package directory and version
+        id: resolve
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            DIR="${{ inputs.package_dir }}"
+            VERSION=""
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+
+            if [[ "$TAG" =~ ^v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+              # 根包 ume
+              DIR="."
+              VERSION="${BASH_REMATCH[1]}"
+            elif [[ "$TAG" =~ ^(ume_kit_[a-z0-9_]+)-v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+              PKG="${BASH_REMATCH[1]}"
+              VERSION="${BASH_REMATCH[2]}"
+              DIR="pkgs/${PKG}"
+            elif [[ "$TAG" =~ ^(ume_core)-v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+              DIR="pkgs/ume_core"
+              VERSION="${BASH_REMATCH[2]}"
+            else
+              echo "::error::无法从 tag '$TAG' 解析出包目录"
+              exit 1
+            fi
+          fi
+
+          if [ ! -f "$DIR/pubspec.yaml" ]; then
+            echo "::error::找不到 $DIR/pubspec.yaml"
+            exit 1
+          fi
+
+          # 校验 tag 版本与 pubspec version 一致（workflow_dispatch 时跳过）
+          if [ -n "$VERSION" ]; then
+            SPEC_VERSION="$(grep -m1 -E '^version:' "$DIR/pubspec.yaml" | sed -E 's/^version:[[:space:]]*//' | tr -d '"'"'"'')"
+            if [ "$SPEC_VERSION" != "$VERSION" ]; then
+              echo "::error::tag 版本 ($VERSION) 与 $DIR/pubspec.yaml 版本 ($SPEC_VERSION) 不一致"
+              exit 1
+            fi
+          fi
+
+          echo "package_dir=$DIR" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION"   >> "$GITHUB_OUTPUT"
+          echo "将发布: $DIR (version=${VERSION:-<dispatch>})"
+
+  # 使用 dart-lang 官方 reusable workflow 发布（OIDC 免密）
+  publish:
+    name: Publish ${{ needs.resolve.outputs.package_dir }}
+    needs: resolve
+    permissions:
+      id-token: write   # OIDC 认证所需
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    with:
+      working-directory: ${{ needs.resolve.outputs.package_dir }}

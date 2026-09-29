@@ -1,0 +1,113 @@
+name: CI
+
+# 质量门禁：静态分析 + 逐包测试 + example 构建
+# 单仓库 pub workspace：根目录一次 `pub get` 覆盖全部成员包。
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLUTTER_CHANNEL: stable
+
+jobs:
+  # ---------------------------------------------------------------- 静态分析
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
+
+      # workspace 根解析一次，覆盖所有成员包
+      - name: Resolve workspace
+        run: flutter pub get
+
+      # 0 error 即通过；warning/info 不阻塞（存量 lint 较多，逐步清理）
+      # 注意：dart analyze 只有 --fatal-infos（info 默认不致命），故只需关闭 warning 致命
+      - name: dart analyze
+        run: dart analyze --no-fatal-warnings .
+
+  # ------------------------------------------------------------------ 单元测试
+  test:
+    name: Test ${{ matrix.package }}
+    runs-on: ubuntu-latest
+    needs: analyze
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - example
+          - pkgs/ume_core
+          - pkgs/ume_kit_bloc_inspector
+          - pkgs/ume_kit_channel_monitor
+          - pkgs/ume_kit_channel_observer
+          - pkgs/ume_kit_clean_local_data
+          - pkgs/ume_kit_console
+          - pkgs/ume_kit_database
+          - pkgs/ume_kit_device
+          - pkgs/ume_kit_dio
+          - pkgs/ume_kit_get_connect
+          - pkgs/ume_kit_memory_detector
+          - pkgs/ume_kit_perf
+          - pkgs/ume_kit_shared_preferences
+          - pkgs/ume_kit_show_code
+          - pkgs/ume_kit_ui
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
+
+      - name: Resolve workspace
+        run: flutter pub get
+
+      # workspace 成员直接在该包目录内跑测试，沿用仓库原有约定
+      - name: flutter test
+        working-directory: ${{ matrix.package }}
+        run: flutter test
+
+  # ------------------------------------------------------------ example 构建
+  build-example:
+    name: Build example (android)
+    runs-on: ubuntu-latest
+    needs: analyze
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
+
+      - name: Resolve workspace
+        run: flutter pub get
+
+      - name: Build debug APK
+        working-directory: example
+        run: flutter build apk --debug
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-debug-apk
+          path: example/build/app/outputs/flutter-apk/app-debug.apk
+          if-no-files-found: warn
+          retention-days: 7

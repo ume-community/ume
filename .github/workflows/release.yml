@@ -1,0 +1,56 @@
+name: Release (example APK + GitHub Release)
+
+# 推送 v{{version}} tag 时：
+#   1) 构建 example 的 release APK（Android）
+#   2) 创建对应的 GitHub Release 并附加 APK
+#
+# 与 publish.yml 配套：同一个 v{{version}} tag 既发布 ume 到 pub.dev，
+# 也产出 GitHub Release。两者相互独立，互不阻塞。
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "要为其创建 Release 的 tag（需已存在）"
+        required: true
+        type: string
+
+permissions:
+  contents: write   # 创建 Release 需要
+
+jobs:
+  release:
+    name: Build example and release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Resolve workspace
+        run: flutter pub get
+
+      - name: Build release APK
+        working-directory: example
+        run: flutter build apk --release
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+          generate_release_notes: true
+          files: example/build/app/outputs/flutter-apk/app-release.apk
+          fail_on_unmatched_files: true
