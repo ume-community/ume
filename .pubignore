@@ -1,9 +1,12 @@
-# 非发布内容
+# .pubignore —— 控制 `dart pub publish` 打包内容（覆盖 .gitignore）
+#
+# ume 是 façade 包：lib/ume.dart 仅 re-export 各 kit，
+# 实际 kit 源码各自发布到 pub.dev，无需打进ume 归档。
+# 这样发布包从 ~10MB 降到 ~51KB。
 example/
 pkgs/
-ume_core/
-ume_kits/
-.github/
+build/
 coverage/
 screenshots/
-build/
+.github/
+openspec/
