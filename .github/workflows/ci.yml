@@ -46,16 +46,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # 仅包含「有 test/ 目录」的包；无测试的 kit 会被跳过（而非失败）。
         package:
           - example
           - pkgs/ume_core
-          - pkgs/ume_kit_bloc_inspector
-          - pkgs/ume_kit_channel_monitor
           - pkgs/ume_kit_channel_observer
           - pkgs/ume_kit_clean_local_data
           - pkgs/ume_kit_console
           - pkgs/ume_kit_database
-          - pkgs/ume_kit_device
           - pkgs/ume_kit_dio
           - pkgs/ume_kit_get_connect
           - pkgs/ume_kit_memory_detector
@@ -76,10 +74,18 @@ jobs:
 
       # workspace 成员直接在该包目录内跑测试，沿用仓库原有约定。
       # --enable-vmservice：ume_core / ume_kit_show_code 的测试依赖 VM Service
-      # （ServiceWrapper 会连接测试进程自身的 VM Service），关闭该 flag 会导致失败。
+      #   （ServiceWrapper 会连接测试进程自身的 VM Service），无该 flag 会失败。
+      # 若无 test/ 目录则跳过（避免新增 kit 尚未写测试时 CI 变红）。
       - name: flutter test
+        shell: bash
         working-directory: ${{ matrix.package }}
-        run: flutter test --enable-vmservice
+        run: |
+          set -euo pipefail
+          if [ ! -d test ]; then
+            echo "::notice::${{ matrix.package }} 没有 test/ 目录，跳过"
+            exit 0
+          fi
+          flutter test --enable-vmservice
 
   # ------------------------------------------------------------ example 构建
   build-example:
