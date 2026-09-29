@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ume_core/ume_core.dart';
 import 'package:provider/provider.dart';
 
+import 'bloc_inspector_demo_page.dart';
 import 'main.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,6 +35,13 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => const BlocInspectorDemoPage()));
+              },
+              child: const Text('Push BLoC Inspector Demo Page'),
+            ),
             TextButton(
               onPressed: () => UMEWidget.closeActivatedPlugin(),
               child: const Text('Close activated plugin'),

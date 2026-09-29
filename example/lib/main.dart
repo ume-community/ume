@@ -17,6 +17,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  BlocInspector.initialize();
   runApp(const UMEApp());
 }
 
@@ -36,6 +37,9 @@ class _UMEAppState extends State<UMEApp> {
     });
     if (kDebugMode) {
       PluginManager.instance
+        // Bloc
+        ..register(const BlocInspector())
+
         // Channel monitor
         // ..register(ChannelMonitor())
 
@@ -50,6 +54,9 @@ class _UMEAppState extends State<UMEApp> {
 
         // Database
         ..register(DatabasePanel(databases: []))
+
+        // Dark side
+        ..register(DarkSide(context: context))
 
         // Designer check
         ..register(DesignerCheck())
@@ -88,6 +95,10 @@ class _UMEAppState extends State<UMEApp> {
 
         // Slow animation
         ..register(SlowAnimation())
+
+        // Storage
+        // ..register(Storage())
+
         // UI inspector
         ..register(WidgetInfoInspector())
         ..register(WidgetDetailInspector())
@@ -105,7 +116,9 @@ class _UMEAppState extends State<UMEApp> {
     return MaterialApp(
       navigatorKey: navigatorKey,
       title: 'UME Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
       home: HomePage(title: 'UME Demo Home Page'),
       onGenerateRoute: (settings) {
         switch (settings.name) {
