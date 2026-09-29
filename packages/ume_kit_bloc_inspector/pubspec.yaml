@@ -1,0 +1,26 @@
+name: ume_kit_bloc_inspector
+resolution: workspace
+description: A UME kit for flutter_bloc.
+version: 0.0.1
+homepage: https://github.com/ume-community/ume
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.0.0
+  ume_core: ^2.0.1
+  flutter_svg_provider: ^1.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
