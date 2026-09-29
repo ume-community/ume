@@ -46,11 +46,20 @@ jobs:
         working-directory: example
         run: flutter build apk --release
 
+      # 重命名构建产物，Release 附件用语义化文件名
+      - name: Rename APK
+        run: |
+          set -euo pipefail
+          SRC="example/build/app/outputs/flutter-apk/app-release.apk"
+          DEST="example/build/app/outputs/flutter-apk/wetlan-example-android.apk"
+          mv "$SRC" "$DEST"
+          ls -lh "$DEST"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
           name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
           generate_release_notes: true
-          files: example/build/app/outputs/flutter-apk/app-release.apk
+          files: example/build/app/outputs/flutter-apk/wetlan-example-android.apk
           fail_on_unmatched_files: true

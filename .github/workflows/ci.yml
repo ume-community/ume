@@ -112,10 +112,19 @@ jobs:
         working-directory: example
         run: flutter build apk --debug
 
+      # 重命名构建产物，artifact 用语义化文件名
+      - name: Rename APK
+        run: |
+          set -euo pipefail
+          SRC="example/build/app/outputs/flutter-apk/app-debug.apk"
+          DEST="example/build/app/outputs/flutter-apk/wetlan-example-android-debug.apk"
+          mv "$SRC" "$DEST"
+          ls -lh "$DEST"
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: example-debug-apk
-          path: example/build/app/outputs/flutter-apk/app-debug.apk
+          name: wetlan-example-android-debug
+          path: example/build/app/outputs/flutter-apk/wetlan-example-android-debug.apk
           if-no-files-found: warn
           retention-days: 7
