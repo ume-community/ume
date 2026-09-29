@@ -78,15 +78,17 @@ void main() {
   });
 
   test('FlutterLogoDecoration toString', () {
+    // 注：Flutter 3.27+ 起 `Color.toString()` 由十六进制简写
+    // (`Color(0xff000000)`) 改为分量形式，故断言改用当前格式。
     expect(
       start.toString(),
       equals(
-          'FlutterLogoDecoration(Color(0xff000000)/Color(0xffffffff) on Color(0xffd4f144), style: stacked)'),
+          'FlutterLogoDecoration(Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB)/Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB) on Color(alpha: 1.0000, red: 0.8314, green: 0.9451, blue: 0.2667, colorSpace: ColorSpace.sRGB), style: stacked)'),
     );
     expect(
       FlutterLogoDecoration.lerp(null, end, 0.5).toString(),
       equals(
-        'FlutterLogoDecoration(Color(0xffffffff)/Color(0xff000000) on Color(0xff81d4fa), style: stacked, transition -1.0:0.5)',
+        'FlutterLogoDecoration(Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB)/Color(alpha: 1.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) on Color(alpha: 1.0000, red: 0.5059, green: 0.8314, blue: 0.9804, colorSpace: ColorSpace.sRGB), style: stacked, transition -1.0:0.5)',
       ),
     );
   });

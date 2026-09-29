@@ -74,10 +74,12 @@ jobs:
       - name: Resolve workspace
         run: flutter pub get
 
-      # workspace 成员直接在该包目录内跑测试，沿用仓库原有约定
+      # workspace 成员直接在该包目录内跑测试，沿用仓库原有约定。
+      # --enable-vmservice：ume_core / ume_kit_show_code 的测试依赖 VM Service
+      # （ServiceWrapper 会连接测试进程自身的 VM Service），关闭该 flag 会导致失败。
       - name: flutter test
         working-directory: ${{ matrix.package }}
-        run: flutter test
+        run: flutter test --enable-vmservice
 
   # ------------------------------------------------------------ example 构建
   build-example:

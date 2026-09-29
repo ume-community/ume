@@ -112,12 +112,17 @@ class _MenuPageState extends State<MenuPage>
                           )),
                     ],
                   ),
-                  Container(
+                  Flexible(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
                       child: Text('UME',
                           style: const TextStyle(
                               fontSize: 60,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xff454545)))),
+                              color: Color(0xff454545))),
+                    ),
+                  ),
                 ],
               ),
             ),

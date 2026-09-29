@@ -1,30 +1,27 @@
-// This is a basic Flutter widget test.
+// Smoke test for the UME example app.
 //
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+// 说明：原文件是 `flutter create` 生成的计数器模板测试（期待 "0"/"1" 文本），
+// 但 example 是 UME 的演示应用，并没有计数器 UI，因此该测试从来无法通过。
+// 这里改为验证主页面能被正常渲染（需按 main.dart 的方式提供 UMESwitch）。
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
-import 'package:example/main.dart';
+import 'package:example/home_page.dart';
+import 'package:example/ume_switch.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const UMEApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+  testWidgets('HomePage renders the UME demo title', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      ChangeNotifierProvider(
+        create: (_) => UMESwitch(),
+        child: const MaterialApp(
+          home: HomePage(title: 'UME Demo Home Page'),
+        ),
+      ),
+    );
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('UME Demo Home Page'), findsOneWidget);
   });
 }
