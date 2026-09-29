@@ -1,7 +1,6 @@
 library ume;
 
 export 'package:ume_core/ume_core.dart';
-export 'package:ume_kit_bloc_inspector/ume_kit_bloc_inspector.dart';
 export 'package:ume_kit_channel_monitor/ume_kit_channel_monitor.dart';
 export 'package:ume_kit_channel_observer/ume_kit_channel_observer.dart';
 export 'package:ume_kit_clean_local_data/ume_kit_clean_local_data.dart';

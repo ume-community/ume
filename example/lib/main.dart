@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:ume/ume.dart';
+// BlocInspector 所属 kit 尚未发布到 pub.dev，未包含在 ume façade 中，故 direct import。
+import 'package:ume_kit_bloc_inspector/ume_kit_bloc_inspector.dart';
 
 final Dio dio = Dio()
   ..options = BaseOptions(connectTimeout: Duration(seconds: 10));

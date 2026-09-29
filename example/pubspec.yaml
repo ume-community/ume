@@ -22,6 +22,11 @@ dependencies:
 
   cupertino_icons: ^1.0.8
 
+  # UME façade（workspace 内解析为本地根包，无需 path）
+  ume: ^2.0.6
+  # 尚未发布到 pub.dev 的本地 kit（example 直接依赖以便演示）
+  ume_kit_bloc_inspector: ^0.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -30,9 +35,6 @@ dev_dependencies:
   test: any
   flutter_lints: ^6.0.0
   vm_service: ^15.0.0
-
-  ume:
-    path: ../
 
 flutter:
   uses-material-design: true
