@@ -2,7 +2,7 @@ name: ume_kit_console
 resolution: workspace
 description: Show debugPrint kit for ume.
 version: 2.0.3
-homepage: https://github.com/ume-community/ume_kits
+homepage: https://github.com/insightop/ume/tree/master/pkgs/ume_kit_console
 
 environment:
   sdk: ">=3.9.0 <4.0.0"

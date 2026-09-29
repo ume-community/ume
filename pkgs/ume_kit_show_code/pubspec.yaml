@@ -2,7 +2,7 @@ name: ume_kit_show_code
 resolution: workspace
 description: Show Code kit for ume.
 version: 2.0.4
-homepage: https://github.com/ume-community/ume_kits
+homepage: https://github.com/insightop/ume/tree/master/pkgs/ume_kit_show_code
 
 environment:
   sdk: ">=3.9.0 <4.0.0"

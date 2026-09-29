@@ -4,7 +4,7 @@
 
 [Community Version] UME is an in-app debug kits platform for Flutter apps.
 
-[![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/ume-community/ume.svg)](https://github.com/ume-community/ume/blob/master/LICENSE)
+[![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/insightop/ume.svg)](https://github.com/insightop/ume/blob/master/LICENSE)
 
 [![pub package](https://img.shields.io/pub/v/ume.svg)](https://pub.dev/packages/ume)
 [![pub package](https://img.shields.io/pub/likes/ume.svg)](https://pub.dev/packages/ume)
@@ -13,7 +13,7 @@
 [![pub package](https://img.shields.io/pub/publisher/ume.svg)](https://pub.dev/packages/ume)
 
 Scan QR code or click link to download apk. Try it now!
-https://github.com/ume-community/ume/releases
+https://github.com/insightop/ume/releases
 
 There are 13 plugin kits built in the latest open source version of UME.
 Developer could create custom plugin kits, and integrate them into UME.

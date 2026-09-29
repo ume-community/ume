@@ -4,7 +4,7 @@
 
 [社区版] Flutter 应用内调试工具平台
 
-[![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/ume-community/ume.svg)](https://github.com/ume-community/ume/blob/master/LICENSE)
+[![platforms](https://img.shields.io/badge/platforms-ios%20%7C%20android%20%7C%20web%20%7C%20macos%20%7C%20windows%20%7C%20linux-lightgrey)](https://pub.dev/packages/ume) [![license](https://img.shields.io/github/license/insightop/ume.svg)](https://github.com/insightop/ume/blob/master/LICENSE)
 
 [![pub package](https://img.shields.io/pub/v/ume.svg)](https://pub.dev/packages/ume)
 [![pub package](https://img.shields.io/pub/likes/ume.svg)](https://pub.dev/packages/ume)
@@ -12,7 +12,7 @@
 [![pub package](https://img.shields.io/pub/popularity/ume.svg)](https://pub.dev/packages/ume)
 [![pub package](https://img.shields.io/pub/publisher/ume.svg)](https://pub.dev/packages/ume)
 
-点击链接下载 apk，快速体验 UME。 https://github.com/ume-community/ume/releases
+点击链接下载 apk，快速体验 UME。 https://github.com/insightop/ume/releases
 
 最新版本(1.0.1)内置 13 个插件，
 开发者可以创建自己的插件，并集成进 UME 平台。

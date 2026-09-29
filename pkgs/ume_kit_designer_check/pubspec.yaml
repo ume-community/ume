@@ -2,7 +2,7 @@ name: ume_kit_designer_check
 resolution: workspace
 description: Designer UI check tool for UME.
 version: 2.0.1
-homepage: https://github.com/ume-community/ume_kits
+homepage: https://github.com/insightop/ume/tree/master/pkgs/ume_kit_designer_check
 
 environment:
   sdk: ">=3.9.0 <4.0.0"

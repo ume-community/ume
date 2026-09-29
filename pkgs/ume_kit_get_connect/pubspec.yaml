@@ -2,7 +2,7 @@ name: ume_kit_get_connect
 resolution: workspace
 description: get_connect kit for ume.
 version: 2.0.2
-homepage: https://github.com/ume-community/ume_kits
+homepage: https://github.com/insightop/ume/tree/master/pkgs/ume_kit_get_connect
 
 environment:
   sdk: ">=3.9.0 <4.0.0"
