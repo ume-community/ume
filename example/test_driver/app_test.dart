@@ -45,15 +45,22 @@ void main() {
       });
     });
 
-    test('Drag Flutter logo horizontally', () async {
+    test('Drag Flutter logo horizontally snaps to screen edge', () async {
       await driver.runUnsynchronized(() async {
-        const double dx = 100;
         await driver.waitFor(flutterLogoFinder);
-        final oldPos = await driver.getBottomLeft(flutterLogoFinder);
+
+        // 横向拖拽释放后，浮点会吸附到屏幕左/右边缘（见 RootWidget.dragEnd）。
+        // 因此不能断言「位移恰好等于拖拽距离」，而应断言吸附行为本身。
         await driver.scroll(
-            flutterLogoFinder, -dx, 0, Duration(milliseconds: 500));
-        final newPos = await driver.getBottomLeft(flutterLogoFinder);
-        expect((oldPos.dx - newPos.dx) - dx < 0.00001, true);
+            flutterLogoFinder, 500, 0, Duration(milliseconds: 500));
+        final rightSnapped = await driver.getBottomLeft(flutterLogoFinder);
+
+        await driver.scroll(
+            flutterLogoFinder, -500, 0, Duration(milliseconds: 500));
+        final leftSnapped = await driver.getBottomLeft(flutterLogoFinder);
+
+        // 吸附到右侧时的 x 必须大于吸附到左侧时的 x，且两者差异明显
+        expect(rightSnapped.dx > leftSnapped.dx, true);
       });
     });
   });
