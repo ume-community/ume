@@ -80,3 +80,6 @@ build/
 
 # Pubspec.lock
 **/pubspec.lock
+# vendored 的 cyclop 包把 pubspec.lock 一并签入（其上游要求），
+# 取消忽略以免 dart pub publish 报「已签入但被 gitignore」的 warning。
+!lib/third_party/cyclop/pubspec.lock
