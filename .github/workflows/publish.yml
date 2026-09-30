@@ -107,11 +107,13 @@ jobs:
         working-directory: ${{ needs.resolve.outputs.package_dir }}
         run: flutter pub get
 
-      # --ignore-warnings：存量 lint 提示不应阻塞发版（代码质量另行跟踪）
+      # 注意：--ignore-warnings 仅能与 --dry-run 同用（pub 源码 lish.dart 会校验）。
+      # exit 65 只发生在 dry-run 分支的 `warningCount != 0` 时；
+      # 真实发布路径不会因 warning 失败，--force 跳过确认提示。
       - name: Publish - dry run
         working-directory: ${{ needs.resolve.outputs.package_dir }}
         run: dart pub publish --dry-run --ignore-warnings
 
       - name: Publish to pub.dev
         working-directory: ${{ needs.resolve.outputs.package_dir }}
-        run: dart pub publish --force --ignore-warnings
+        run: dart pub publish --force
