@@ -82,3 +82,10 @@ build/
 
 # Melos
 **/pubspec_overrides.yaml
+
+# iOS/macOS 依赖目录与锁定文件（属生成物，Flutter 官方 monorepo 亦忽略）
+# 注：这里是文件名规则，不会排除任何包的祖先目录，故不影响 dart pub publish。
+Podfile.lock
+Pods/
+.swiftpm/
+.symlinks/
