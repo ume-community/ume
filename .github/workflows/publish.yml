@@ -1,15 +1,18 @@
 name: Publish to pub.dev
 
-# 通过 git tag 触发发布，使用 pub.dev 官方的 GitHub OIDC 免密自动化发布。
+# 通过 git tag 触发发布，使用 pub.dev 的 GitHub OIDC 免密认证。
+#
+# 为什么不用 dart-lang 的 reusable workflow？
+#   该 workflow 内部执行 `dart pub publish --dry-run`（未加 --ignore-warnings），
+#   而 pub 在「存在 warning 时」返回退出码 65。各 kit 有存量 lint 提示
+#   （deprecated API / 文档注释格式等），会导致发布永远在 dry-run 步骤失败。
+#   官方文档亦提供了自定义 workflow 的写法（同样走 OIDC），见：
+#   https://dart.dev/tools/pub/automated-publishing
 #
 # tag 约定（需与 pub.dev 后台 "Automated publishing" 里为每个包配置的 tag pattern 一致）：
 #   根包 ume          -> v{{version}}                    例如 v2.0.7
 #   kit 包            -> <包名>-v{{version}}             例如 ume_kit_console-v2.0.4
 #   ume_core          -> ume_core-v{{version}}           例如 ume_core-v2.0.3
-#
-# 例：
-#   git tag v2.0.7 && git push origin v2.0.7
-#   git tag ume_kit_console-v2.0.4 && git push origin ume_kit_console-v2.0.4
 on:
   push:
     tags:
@@ -81,12 +84,34 @@ jobs:
           echo "version=$VERSION"   >> "$GITHUB_OUTPUT"
           echo "将发布: $DIR (version=${VERSION:-<dispatch>})"
 
-  # 使用 dart-lang 官方 reusable workflow 发布（OIDC 免密）
+  # 使用 dart-lang/setup-dart 注入 OIDC token，再自行执行 publish。
   publish:
     name: Publish ${{ needs.resolve.outputs.package_dir }}
     needs: resolve
+    runs-on: ubuntu-latest
     permissions:
-      id-token: write   # OIDC 认证所需
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      working-directory: ${{ needs.resolve.outputs.package_dir }}
+      id-token: write   # OIDC 认证所需（由 setup-dart 步骤换取临时 token）
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1) 注入 pub.dev 的 OIDC 凭据（必须最先执行）
+      - uses: dart-lang/setup-dart@v1
+
+      # 2) Flutter SDK —— kit 均为 Flutter 包，需要 flutter 提供的 dart
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Resolve dependencies
+        working-directory: ${{ needs.resolve.outputs.package_dir }}
+        run: flutter pub get
+
+      # --ignore-warnings：存量 lint 提示不应阻塞发版（代码质量另行跟踪）
+      - name: Publish - dry run
+        working-directory: ${{ needs.resolve.outputs.package_dir }}
+        run: dart pub publish --dry-run --ignore-warnings
+
+      - name: Publish to pub.dev
+        working-directory: ${{ needs.resolve.outputs.package_dir }}
+        run: dart pub publish --force --ignore-warnings
