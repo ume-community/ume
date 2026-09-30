@@ -20,7 +20,7 @@ dependencies:
 
   flutter_bloc: ^9.0.0
 
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^2.0.0
 
   # UME façade（workspace 内解析为本地根包，无需 path）
   ume: ^2.0.6

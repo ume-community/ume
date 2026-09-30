@@ -2,6 +2,14 @@
 
 [简体中文](./CHANGELOG_cn.md)
 
+## [2.0.8]
+
+- **Fix**: replace the third-party `ume_kit_monitor` dependency with our own
+  `ume_kit_traffic` (the `ume_kit_monitor` name on pub.dev is owned by another
+  publisher, so consumers were silently getting someone else's package)
+- Workspace `pkgs/` renamed to `packages/`
+- Dependencies upgraded to their latest versions (incl. `cupertino_icons` 2.0.0)
+
 ## [2.0.7]
 
 - Repository moved to https://github.com/insightop/ume

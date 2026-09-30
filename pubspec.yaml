@@ -1,6 +1,6 @@
 name: ume
 description: Community Version of UME is an in-app debug kits platform for Flutter apps.
-version: 2.0.7
+version: 2.0.8
 homepage: https://github.com/insightop/ume
 topics: [debug, in-app-debug, diagnostics, plugin, ume]
 screenshots:
@@ -68,5 +68,23 @@ flutter:
 
 melos:
   useRootAsPackage: true
-  bootstrap:
-    runPubGetInParallel: true
+  command:
+    bootstrap:
+      runPubGetInParallel: true
+    # 与 CI 保持一致：0 error 即通过，warning/info 不阻塞（存量 lint 逐步清理）
+    analyze:
+      fatalInfos: false
+      fatalWarnings: false
+  scripts:
+    test:
+      exec:
+        command: flutter test --enable-vmservice
+        concurrency: 1
+      packageFilters:
+        dirExists: test
+    analyze:
+      exec:
+        command: dart analyze --no-fatal-warnings .
+      packageFilters:
+        dirExists: lib
+

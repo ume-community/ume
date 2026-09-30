@@ -2,6 +2,13 @@
 
 [English](./CHANGELOG.md)
 
+## [2.0.8]
+
+- **修复**：将第三方的 `ume_kit_monitor` 依赖替换为自有的 `ume_kit_traffic`
+  （pub.dev 上 `ume_kit_monitor` 这一名称归属其他发布者，用户此前实际拿到的是他人的包）
+- 工作区目录 `pkgs/` 重命名为 `packages/`
+- 依赖升级到最新版本（含 `cupertino_icons` 2.0.0）
+
 ## [2.0.7]
 
 - 仓库迁移至 https://github.com/insightop/ume
