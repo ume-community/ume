@@ -1,7 +1,7 @@
 name: ume_kit_channel_observer
 resolution: workspace
 description: Channel Observer for UME Kit
-version: 2.0.1
+version: 2.0.2
 homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_channel_observer
 
 environment:

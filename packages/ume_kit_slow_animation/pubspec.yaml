@@ -1,7 +1,7 @@
 name: ume_kit_slow_animation
 resolution: workspace
 description: Make the animation slow or fast for UME.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_slow_animation
 
 environment:
