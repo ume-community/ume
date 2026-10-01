@@ -1,7 +1,7 @@
 name: ume_kit_shared_preferences
 resolution: workspace
 description: Shared preferences kit for UME.
-version: 2.0.2
+version: 2.0.3
 homepage: https://github.com/insightop/ume/tree/master/packages/ume_kit_shared_preferences
 
 environment:

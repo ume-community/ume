@@ -16,6 +16,8 @@ workspace:
   - example
   # 所有 kit + ume_core（glob 自动纳入新增包）
   - packages/*
+  # 各 kit 自带的演示 app（Flutter 官方约定，放在包的 example/ 下）
+  - packages/*/example
 
 dependencies:
   flutter:
